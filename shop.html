@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/shop.css" />
+  <script type="module" src="./js/app.js"></script>
+  <script type="module" src="./js/logout.js"></script>
+  <title>Webshop | Shop</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="checkout.html">Checkout</a>
+      <a href="index.html">Login</a>
+      <a href="shop.html">Products</a>
+      <a href="signup.html">Sign up</a>
+    </nav>
+  </header>
+  <nav>
+    <a href="">
+      <img src="" alt="logo">
+    </a>
+    <div>
+      <p>Welcome</p>
+      <a href="">
+        <img src="" alt="basket">
+      </a>
+      <button id="logout">Logout</button>
+    </div>
+  </nav>
+  <main>
+    <header class="splash">
+      <div class="splash-cta">
+        <h1>SPAR OP TIL 40% PÅ DIN FØRSTE ORDRE</h1>
+        <h4>Brug koden: NEWCUSTOMER</h4>
+        <button></button>
+      </div>
+      <div class="splash-image-container">
+        <div class="splash-image-placeholder"></div>
+      </div>
+    </header>
+    <section>
+      <div>
+        <ul class="side-nav">
+          <li><a href="">All categories</a></li>
+          <li><a href="">Womens clothing</a></li>
+          <li><a href="">Mens clothing</a></li>
+          <li><a href="">Jewelry</a></li>
+          <li><a href="">Electronics</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <template id="product-template">
+          <li>
+            <article id="single-product">
+              <img src="" alt="" class="product-img">
+              <h4 class="product-title"></h4>
+              <p class="product-price"></p>
+            </article>
+          </li>
+        </template>
+        
+        <ul id="all-products"></ul>
+      </div>
+    </section>
+
+    <dialog id="product-modal">
+      <button id="close-modal">×</button>
+      <img src="" alt="" class="product-img">
+      <h4 class="product-title"></h4>
+      <p class="product-price"></p>
+      <button class="product-add-to-cart">Add to cart</button>
+      <p class="product-description"></p>
+    </dialog>
+
+  </main>
+
+  <footer>
+    <div>
+      <address>
+        Guldbergsgade 29N,<br>
+        2200 Copenhagen <br>
+        Denmark <br>
+
+        <a href="tel:+4512345678"><img src="images/phone.svg" alt=""> (+45) 12 34 56 78</a> <br>
+        <a href="mailto:info@company.com"><img src="images/Email.svg" alt=""> info@company.com</a>
+      </address>
+    </div>
+    <div>
+      <a href="">About us</a>
+      <a href="">Careers</a>
+      <a href="">Contact us</a>
+    </div>
+    <div>
+      <a href="">About us</a>
+      <a href="">Careers</a>
+      <div>
+        <a href="www.instagram.com"><img src="images/instagram_circle.svg" alt="Instagram Logo, in black/white"></a>
+        <a href="www.facebook.com"><img src="images/Facebook_circled.svg" alt="Facebook Logo, in black/white"></a>
+        <a href="www.twitter.com"><img src="images/twitter_circled.svg" alt="Twitter Logo, in black/white"></a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -3,9 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/home.css" />
-    <script type="module" src="./js/app.js"></script>
+    <link rel="stylesheet" href="./css/index.css" />
+    <script type="module" src="./js/account.js" defer></script>
     <title>Webshop | Login</title>
   </head>
-  <body></body>
+  <body>
+    <header><nav>
+      <a href="checkout.html">Checkout</a>
+      <a href="index.html">Login</a>
+      <a href="shop.html">Products</a>
+      <a href="signup.html">Sign up</a>
+    </nav></header>
+    <main>
+      <h1>Login and Shop </h1>
+      <h2></h2>
+      <!-- Login Form -->
+      <form action="" onsubmit="return false">
+
+        <label for="login_email">
+          Email
+        </label>
+        <input id="login_email" name="login_email" type="email" required>
+        <!-- Password field, aswell as "forgot password" and "view password" icon -->
+        <div>
+          <label for="login_password">
+            Password
+          </label>
+          <a href="#">Forgot Password?</a>
+          <div>
+            <input id="login_password" name="login_password" type="password" required>
+            <!-- "view password" icon-->
+            <button ><img src="images/view_password.svg" alt="Click to view password"></button>
+          </div>
+        </div>
+        <button id="formSubmitLogin">Login</button>
+      </form>
+      <p>Don't have an account? <a href="#">Sign up Today!</a></p>
+    
+    </main>
+      <div class="circle"></div>
+  </body>
 </html>
+
+

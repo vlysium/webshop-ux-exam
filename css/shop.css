@@ -1,0 +1,85 @@
+@import url("./global.css");
+
+main {
+    background-color: var(--color-grey);
+    padding: 0 4rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6rem;
+    margin: 0 4rem;
+}
+
+.splash {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    height: 60vh;
+    display: flex;
+    align-items: center;
+}
+.splash-cta {
+    margin: auto;
+    width: 450px;
+}
+
+.splash-cta h4 {
+    margin: 2rem 0 4rem 0;
+}
+
+.splash-image-container {
+    width: auto;
+    height: auto;
+    margin: auto;
+    background-color: white;
+}
+.splash-image-placeholder {
+    height: 300px;
+    width: 300px;
+    background-color: black;
+}
+
+nav div {
+    display: flex;
+    gap: 2rem;
+}
+
+section {
+    display: flex;
+    gap: 4.5rem;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+
+#all-products{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr));
+    gap: 5%;
+}
+
+#single-product{
+    display: flex;
+    flex-direction: column;
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.side-nav li {
+    background-color: var(--color-active-filter);
+    width: auto;
+    padding: 0.5rem 0;
+    border-radius: 10px;
+}
+
+.side-nav li a {
+    color: var(--color-dark);
+}

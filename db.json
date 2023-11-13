@@ -1,0 +1,34 @@
+{
+  "profiles": [
+    {
+      "id": 1,
+      "email": "a@a.com",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "email": "b@b.com",
+      "password": "123"
+    },
+    {
+      "email": "c@c.com",
+      "password": "c",
+      "id": 3
+    },
+    {
+      "email": "jona.weldon@gmail.com",
+      "password": "gfd",
+      "id": 4
+    },
+    {
+      "email": "d@d.vom",
+      "password": "o",
+      "id": 5
+    },
+    {
+      "email": "o@o.com",
+      "password": "o",
+      "id": 6
+    }
+  ]
+}

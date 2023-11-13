@@ -1,0 +1,11 @@
+@import url("./global.css");
+
+
+.hidden{
+    display: none;
+
+}
+
+.inputBorder{
+    border: solid 1px red;
+}

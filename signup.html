@@ -3,9 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/home.css" />
-    <script type="module" src="./js/app.js"></script>
+    <link rel="stylesheet" href="./css/signup.css" />
+    <script type="module" src="./js/account.js" defer></script>
     <title>Webshop | Sign up</title>
   </head>
-  <body></body>
+  <body>
+        <header><nav>
+      <a href="checkout.html">Checkout</a>
+      <a href="index.html">Login</a>
+      <a href="shop.html">Products</a>
+      <a href="signup.html">Sign up</a>
+    </nav></header>
+    <main>
+      <h1>Sign up to your account</h1>
+      <span id="password_match_issue" class="hidden">Password most match</span>
+      <span id="email_exist_issue" class="hidden">User Already Exist</span>
+      <form action="" onsubmit="return false">
+        <label for="signup_email" name="signup_email" type="email">E-mail</label>
+        <input type="email" name="signup_email" id="signup_email" required>
+        <label for="signup_password" name="signup_password" type="password">Password</label>
+        <input type="password" name="signup_password" id="signup_password" required>
+        <label for="signup_repeat_password" name="signup_repeat_password" type="password">Repeat Password</label>
+        <input type="password" id="signup_repeat_password" name="signup_repeat_password" required>
+        <button id="formSubmitSignup">Sign up</button>
+        <p>Aready have an account? <a href="#">Login now</a></p>
+      </form>
+    </main>
+  </body>
 </html>
