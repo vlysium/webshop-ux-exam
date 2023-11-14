@@ -15,20 +15,20 @@ const userBasket = localStorage.getItem("basket") ?? []; // assign userBasket to
 */
 
 // fetch data from fakestoreapi
-async function getProducts(){
+async function getProducts() {
   const response = await fetch(fetchAllUrl);
   const allProductsJSON = await response.json();
   allProducts.push(...allProductsJSON);
-  
+
   console.log(allProducts);
 
   displayAllProducts();
 }
 
 // Displaying all of the product, with template
-function displayAllProducts(){
+function displayAllProducts() {
 
-// For each product put in title, image and price from the API
+  // For each product put in title, image and price from the API
   allProducts.forEach(product => {
     const productTemplate = document.querySelector("#product-template").content.cloneNode(true);
     const productContainer = document.querySelector("#all-products");
@@ -36,7 +36,7 @@ function displayAllProducts(){
     // refreshing event listeners to avoid duplication
     const viewSingleProductEvent = () => viewSingleProduct(product);
     productTemplate.querySelector("article").removeEventListener("click", viewSingleProductEvent);
-    
+
     productTemplate.querySelector(".product-img").src = product.image;
     productTemplate.querySelector(".product-title").textContent = product.title;
     productTemplate.querySelector(".product-price").textContent = product.price;
