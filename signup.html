@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <nav>
+      <nav id="tempNav">
         <a href="checkout.html">Checkout</a>
         <a href="index.html">Login</a>
         <a href="shop.html">Products</a>
@@ -25,11 +25,17 @@
         <input type="email" name="signup_email" id="signup_email" required>
         <label for="signup_password" name="signup_password" type="password">Password</label>
         <input type="password" name="signup_password" id="signup_password" required>
-        <label for="signup_repeat_password" name="signup_repeat_password" type="password">Repeat Password</label>
+        <div id="requirements">
+        <p>Password must be between 8 to 20 characters</p>
+        <p>Contain atleast one lowercase and uppercase letter</p>
+        <p>Containt atleast one number and special character</p>
+        </div>
+        <label for="signup_repeat_password" name="signup_repeat_password" type="password" id="label_repeat_password">Repeat Password</label>
         <input type="password" id="signup_repeat_password" name="signup_repeat_password" required>
         <button id="formSubmitSignup">Sign up</button>
-        <p>Aready have an account? <a href="#">Login now</a></p>
+        <p class="center">Aready have an account? <a href="index.html">Login now</a></p>
       </form>
     </main>
+    <div class="circle"></div>
   </body>
 </html>

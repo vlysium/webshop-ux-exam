@@ -1,24 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 
 :root{
+  /* Colors */
   --color-primary: #580ef6;
   --color-dark: #3d3a50;
+  --color-dark-low-opacity: rgba(61, 58, 80, 0.514);
   --color-white: #ffffff;
+  --color-black: #000000;
   --color-grey: #f7f7f7;
   --color-active-filter: #DBDBDB;
+  --color-input-border: rgba(179, 179, 179, 0.692);
+  --color-primary-darker: rgb(63, 13, 172);
+  --color-card-drop-shadow: rgba(24, 39, 72, 0.15);
+  
+  ::backdrop {
+    --color-backdrop: #000000;
+  }
 
+  /* Font family */
   --font-rounded: "Nunito", sans-serif; /* rounded corners on characters */
   --font-sans: "Nunito Sans", sans-serif; /* regular */
 
   /* Font Sizes */
-  --step--2: clamp(0.64rem, 0.7133rem + -0.0946vw, 0.6944rem);
-  --step--1: clamp(0.8rem, 0.8446rem + -0.0576vw, 0.8331rem);
-  --step-0: clamp(1rem, 1rem + 0vw, 1rem);
-  --step-1: clamp(1.2rem, 1.1826rem + 0.087vw, 1.25rem);
-  --step-2: clamp(1.44rem, 1.3974rem + 0.213vw, 1.5625rem);
-  --step-3: clamp(1.7281rem, 1.6499rem + 0.3913vw, 1.9531rem);
-  --step-4: clamp(2.0738rem, 1.9459rem + 0.6391vw, 2.4413rem);
-  --step-5: clamp(2.4881rem, 2.292rem + 0.9804vw, 3.0519rem);
+  --text-xsmall: clamp(0.64rem, 0.7133rem + -0.0946vw, 0.6944rem);
+  --text-small: clamp(0.8rem, 0.8446rem + -0.0576vw, 0.8331rem);
+  --text-base: clamp(1rem, 1rem + 0vw, 1rem);
+  --text-large: clamp(1.2rem, 1.1826rem + 0.087vw, 1.25rem);
+  --text-xlarge: clamp(1.44rem, 1.3974rem + 0.213vw, 1.5625rem);
+  --text-2xlarge: clamp(1.7281rem, 1.6499rem + 0.3913vw, 1.9531rem);
+  --text-3xlarge: clamp(2.0738rem, 1.9459rem + 0.6391vw, 2.4413rem);
+  --text-4xlarge: clamp(2.4881rem, 2.292rem + 0.9804vw, 3.0519rem);
+
+  /* Padding  */
+  --p1: 0.25rem;
+  --p2: 0.5rem;
+  --p4: 1rem;
+  --p6: 1.5rem;
+  --p8: 2rem;
+  --p12: 3rem;
+  --p16: 4rem;
+  --p20: 5rem;
+  --p24: 6rem;
+  --p28: 7rem;
+  --p32: 8rem;
 }
 
 *, *::before, *::after {
@@ -26,9 +50,25 @@
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-sans);
+  font-size: var(--text-base);
 }
 
 /* *insert global styles here* */
+body {
+  background-color: var(--color-grey);
+}
+
+
+main{
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: var(--p8) var(--p16);
+}
+@media (max-width: 768px){
+ main{
+   padding: var(--p8) var(--p4);
+ }
+}
 
 img {
   max-width: 100%;
@@ -38,4 +78,17 @@ img {
 
 a{
   text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+li {
+  list-style-type: none;
+}
+
+#tempNav{
+  position: absolute;
+  top: 0;
 }

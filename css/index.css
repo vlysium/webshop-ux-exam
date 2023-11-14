@@ -1,5 +1,11 @@
 @import url("./global.css");
 
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 a{
     color: var(--color-primary);
     font-weight: 700;
@@ -14,29 +20,56 @@ p{
     text-align: center;
     text-decoration: none;
     border: none;
-    padding: 0.5% 40%;
+    padding:  var(--p2);
     width: 100%;
     color: var(--color-white);
-    border-radius: 0.5rem;
-    font-size: var(--step-1);
+    border-radius: var(--p2);;
+    font-size: var(--text-large);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+
+#formSubmitLogin:hover{
+    background-color: var(--color-primary-darker);
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    padding:  var(--p2);
+    width: 100%;
+    color: var(--color-white);
+    border-radius: var(--p2);
+    font-size: var(--text-large);
+}
+
+label{
+    font-size: var(--text-base);
+    font-weight: 700;
 }
 
 input{
-    border: 0.1em rgb(179, 179, 179) solid;
-    border-radius: 0.2rem;
-    padding: 0.5%;
+    border: 0.1em var(--color-input-border) solid;
+    border-radius: var(--p2);
+    padding: var(--p2);
     width: 100%;
+    margin-bottom: var(--p8);
 }
 
 main{
-    max-width: 40%;
+      max-width: 600px;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    background-color: var(--color-white);
+    padding: var(--p28) var(--p16);
+    border-radius: var(--p4);
+    /* margin-top: var(--p20); */
+    filter: drop-shadow(0 0 0.75rem var(--color-dark-low-opacity));
 }
 
 form{
     width: 100%;
+    height: 30vh;
 }
 
 .circle{
@@ -44,7 +77,50 @@ form{
   clip-path: ellipse(50% 100% at 100% 50%);
   width: 100vw;
   height: 100vh;
-  background-color: red;
+  background-color: var(--color-white);
   z-index: -1;
   inset: 0;
+}
+
+body{
+    background-image:linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("../images/tshirt-bg\ 1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+h1{
+    margin-bottom: var(--p12);
+    font-size: var(--text-4xlarge);
+}
+
+
+.center{
+    text-align: center;
+    padding:  var(--p6);
+}
+
+
+.hide{
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    main{
+    max-width: 92%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    padding: var(--p12);
+    border-radius: 1rem;
+    /* margin-top: var(--p24); */
+    filter: drop-shadow(0 0 0.75rem var(--color-dark-low-opacity));
+    }
+
+    form{
+    width: 100%;
+    height: 40vh;
+    }
 }

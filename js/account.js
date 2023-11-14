@@ -1,17 +1,8 @@
 "use strict";
-
+import {matchPassword, validatePassword, validateEmail, checkExistingUserMail, invalidPassword, invalidEmail} from "./validateAccount.js"
 
 const profiles = []
 const baseUrl = "http://localhost:3000"
-/* 
-TODO:
-    - Make it work with json server
-    - Check json server first then session storage.
-    - if user exsist in server and session storage then continue with check login info
-    - if user exsist in server but not in session storage, then make a session storage once they login.
-    - if user does not exsist in server but does exsist in session storage, then i dont know what to do
-    - if user does not exsist in server and also dosent exsist in session storage, Then continue to check login and refer to signup
-*/
 
 
 // Get profiles from DB
@@ -61,9 +52,7 @@ function checkUserLogin() {
       console.log("Wrong info, motherfucker!")
     }
   })
-
 }
-
 
 
 /* ---------- SIGN UP -------- */
@@ -73,28 +62,39 @@ function checkUserSignup() {
   let signup_email = form.signup_email.value
   let signup_password = form.signup_password.value
   let signup_repeat_password = form.signup_repeat_password.value
-  // check id both password match
-  if (matchPassword(signup_password, signup_repeat_password)) {
-  } else {
-    console.log("false password")
-    return
-  }
-
+  
   // if email already exist
-  if (checkExistingUserMail(signup_email)) {
+  if (checkExistingUserMail(signup_email, profiles)) {
   } else {
     console.log("false mail")
     return
   }
+  if(!(validateEmail(signup_email))){
+    invalidEmail(true, "Starts with one or more word characters, hyphens, or dots. Followed by the at symbol (@). Followed by one or more groups of subdomains, each containing word characters, hyphens, and a dot. Ends with a top-level domain (TLD) containing between 2 and 4 word characters")
+    return
+  } else{
+    invalidEmail(false)
+  }
 
-
+  // check id both password match
+  if (matchPassword(signup_password, signup_repeat_password, profiles)) {
+  } else {
+    console.log("false password")
+    return
+  }
+   if(!validatePassword(signup_password)){
+    console.log("invalid password")
+    invalidPassword(true, "At least one digit. At least one lowercase letter. At least one uppercase letter. At least one letter (either uppercase or lowercase). A minimum length of 8 characters.")
+    return
+  } else{
+    invalidPassword(false)
+  }
   // push new user to DB
   const newUser = { 'email': signup_email, 'password': signup_password }
   postUserToDb(newUser)
 
   // add user to session
-  // THIS DONT WORK FOR SOME REASON
-  const userInfo = { 'email': profile.email }
+  const userInfo = { 'email': signup_email }
   const jsonArray = JSON.stringify(userInfo);
   sessionStorage.setItem('user', jsonArray);
 
@@ -103,56 +103,29 @@ function checkUserSignup() {
 
 }
 
-/* Check Password */
-function matchPassword(signup_password, signup_repeat_password) {
-  if (signup_password !== signup_repeat_password) {
-    document.querySelector("#password_match_issue").classList.remove("hidden")
-    document.querySelector("#signup_password").classList.add("inputBorder")
-    document.querySelector("#signup_repeat_password").classList.add("inputBorder")
-    return false
-  }
-  document.querySelector("#password_match_issue").classList.add("hidden")
-  document.querySelector("#signup_password").classList.remove("inputBorder")
-  document.querySelector("#signup_repeat_password").classList.remove("inputBorder")
-  return true
-}
-
-/* Check Email */
-function checkExistingUserMail(signup_email) {
-  let mailCheck;
-
-  profiles.forEach((profile, i) => {
-
-    if (signup_email === profile.email) {
-      console.log("check mail", profile.email)
-      document.querySelector("#email_exist_issue").classList.remove("hidden")
-      document.querySelector("#signup_email").classList.add("inputBorder")
-      mailCheck = true
-    }
-  })
-
-  if (mailCheck) {
-    return
-  }
-  document.querySelector("#email_exist_issue").classList.add("hidden")
-  document.querySelector("#signup_email").classList.remove("inputBorder")
-  return true
 
 
-}
 
+// Send data om ny bruge til Json Server
 async function postUserToDb(newUser) {
+  // link til server
   let url = baseUrl + '/profiles';
+  // post da vi sender data
   let httpMethod = 'POST';
 
+  // Fetch
   const response = await fetch(url, {
     method: httpMethod,
+    // fortæller hvilken type data vi sender
     headers: {
       'Content-Type': 'application/json'
     },
+    // stringify lave vores objekt om til en string så vi kan send den til json server
     body: JSON.stringify(newUser)
   }).then((response) => { console.log(response); })
     .then((data) => { console.log(data); })
+    // sender en error in consolen hvis der skulle ske noget.
     .catch((error) => { console.log(error); });
 
 }
+

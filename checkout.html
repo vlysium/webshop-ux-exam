@@ -4,17 +4,113 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/checkout.css" />
+    
     <script type="module" src="./js/app.js"></script>
     <title>Webshop | Check out</title>
   </head>
   <body>
     <header>
-      <nav>
+      <nav id="tempNav">
         <a href="checkout.html">Checkout</a>
         <a href="index.html">Login</a>
         <a href="shop.html">Products</a>
         <a href="signup.html">Sign up</a>
       </nav>
+       <nav id="navMenu">
+      <div id="navContainer">
+        <a href="">
+          <img src="images/logo.svg" alt="logo">
+        </a>
+        <div id="menuDiv">
+          <p>Welcome</p>
+          <a href="checkout.html">
+            <img src="images/basket.svg" alt="basket">
+          </a>
+          <button id="logout">Logout</button>
+        </div>
+      </div>
+    </nav>
     </header>
+
+    <main>
+      <form action="">
+       
+        <h4>Contact Information</h4>
+        <label for="contactEmail">E-mail</label>
+        <input type="text" name="contactEmail" id="contactEmail">
+        <fieldset>
+          <h4>Shipping Address</h4>
+          <!-- First & Last Name -->
+          <div>
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName">
+          </div>
+          <!-- Address -->
+          <label for="shipAddress">Address</label>
+          <input type="text" name="shipAddress" id="shipAddress">
+          <!-- Country Zip Code -->
+          <div>
+            <label for="shipCountry">Country</label>
+            <input type="text" name="shipCountry" id="shipCountry">
+            <label for="shipZipCode">Zip Code</label>
+            <input type="text" name="shipZipCode" id="shipZipCode">
+          </div>
+          <!-- Phone Number -->
+          <label for="shipPhone">Phone Number</label>
+          <input type="text" name="shipPhone" id="shipPhone">
+        </fieldset>
+        <fieldset>
+          <h4>Billing Information</h4>
+          <!-- Address -->
+          <label for="billAddress">Address</label>
+          <input type="text" name="billAddress" id="billAddress">
+          <!-- Country Zip Code -->
+          <div>
+            <label for="billCountry">Country</label>
+            <input type="text" name="billCountry" id="billCountry">
+            <label for="billZipCode">Zip Code</label>
+            <input type="text" name="billZipCode" id="billZipCode">
+          </div>
+          <!-- Phone Number -->
+          <label for="billPhone">Phone Number</label>
+          <input type="text" name="billPhone" id="billPhone">
+        </fieldset>
+        <fieldset>
+          <!-- Credit Card -->
+          
+        </fieldset>
+      </form>
+      
+    </main>
+
+    <footer>
+      <div id="footerWidth">
+        <address>
+          Guldbergsgade 29N,<br>
+          2200 Copenhagen <br>
+          Denmark <br>
+
+          <a href="tel:+4512345678"><img src="images/phone.svg" alt=""> (+45) 12 34 56 78</a>
+          <a href="mailto:info@company.com"><img src="images/Email.svg" alt=""> info@company.com</a>
+        </address>
+        <div id="divLinks1">
+          <a href="">About us</a>
+          <a href="">Careers</a>
+          <a href="">Contact us</a>
+        </div>
+        <div id="" class="divLinksTwo">
+          <a href="">Terms & Conditions</a>
+          <a href="">Privacy Policy</a>
+          <div>
+            <a href="www.instagram.com"><img src="images/instagram_circle.svg" alt="Instagram Logo, in black/white"></a>
+            <a href="www.facebook.com"><img src="images/Facebook_circled.svg" alt="Facebook Logo, in black/white"></a>
+            <a href="www.twitter.com"><img src="images/twitter_circled.svg" alt="Twitter Logo, in black/white"></a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
+
 </html>
