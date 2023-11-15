@@ -1,9 +1,15 @@
 "use strict";
 
-import { addToCart } from "./basket.js"
+import { addToBasket, viewBasket } from "./basket.js"
 
 const fetchAllUrl = "https://fakestoreapi.com/products";
 const allProducts = [];
+
+const user = JSON.parse(sessionStorage.getItem("user"));
+if (!user) { // 🧙‍♂️ YOU SHALL NOT PASS - without being logged in first
+  // window.location = "index.html";
+}
+document.querySelector("#user-name").textContent = user?.email;
 
 // fetch data from fakestoreapi
 async function getProducts() {
@@ -39,6 +45,7 @@ function displayAllProducts(products) {
     productTemplate.querySelector("article").removeEventListener("click", viewSingleProductEvent);
 
     productTemplate.querySelector(".product-img").src = product.image;
+    productTemplate.querySelector(".product-img").alt = product.title;
     productTemplate.querySelector(".product-title").textContent = truncateText(product.title, 60);
     productTemplate.querySelector(".product-price").textContent = "$" + product.price;
 
@@ -59,12 +66,22 @@ function viewSingleProduct(product) {
   // set product information on the modal
   productModalClone.querySelector(".product-title").textContent = product.title;
   productModalClone.querySelector(".product-img").src = product.image;
+  productModalClone.querySelector(".product-img").alt = product.title;
   productModalClone.querySelector(".product-price").textContent = "$" + product.price;
   productModalClone.querySelector(".product-description").textContent = product.description;
+  productModalClone.querySelector(".product-rating").textContent = "Rating: " + product.rating.rate + " / 5";
+  productModalClone.querySelector(".product-count").textContent = "Reviewed by " + product.rating.count + " customers";
 
-  productModalClone.querySelector(".product-add-to-cart").addEventListener("click", () => addToCart(product));
+
+  productModalClone.querySelector(".product-add-to-cart").addEventListener("click", () => {
+    addToBasket(product);
+    productModalClone.querySelector(".product-add-to-cart").textContent = "Added to cart";
+    setTimeout(() => {
+      productModalClone.querySelector(".product-add-to-cart").textContent = "Add to cart";
+    }, 1500);
+  });
   // close() built in function for dialog html tag
-  productModalClone.querySelector("#close-modal").addEventListener("click", () => productModalClone.close());
+  productModalClone.querySelector(".close-modal").addEventListener("click", () => productModalClone.close());
 
   productModal.parentNode.replaceChild(productModalClone, productModal) // swapping the old modal with the clone, effectively removing all old event listeners
 
@@ -75,59 +92,34 @@ function viewSingleProduct(product) {
 window.location.pathname.includes("shop.html") && getProducts(); // invoke getProducts if the user is in shop.html
 
 // Selecting all filter buttons
-const filterBtn = document.querySelectorAll("[data-action='filter']");
+const filterBtn = document.querySelectorAll("input[name='filter']");
 
 // Adding click on all the filtering buttons
-function registerFilterBtns(){
-  filterBtn.forEach((button )=>
-  button.addEventListener("click", selectFilter))
+function registerFilterBtns() {
+  filterBtn.forEach((button) => button.addEventListener("click", selectFilter));
 }
 
 // Selecting filter
-function selectFilter(event){
-  const filter = event.target.dataset.filter;
-  filterProducts(filter);
+function selectFilter(event) {
+  const filterValue = event.target.value;
 
+  const filteredProducts = allProducts.filter(product => product.category == filterValue);
+
+  // display all products if the selected category is "all", otherwise display products matching the respective category
+  filterValue == "all" ? displayAllProducts(allProducts) : displayAllProducts(filteredProducts);
 }
 
-// If filter === category name return those products
-function filterProducts(filter){
-  let filteredProducts = allProducts;
-  if (filter === "men's clothing"){
-    filteredProducts = filteredProducts.filter(filterMaleClothing);
-  } else if (filter === "women's clothing"){
-    filteredProducts = filteredProducts.filter(filterWomenClothing);
-  } else if (filter === "jewelery"){
-    filteredProducts = filteredProducts.filter(filterJewelery);
-  } else if (filter === "electronics"){
-    filteredProducts = filteredProducts.filter(filterElectronics);
-  } else if (filter === "all"){
-    filteredProducts = filteredProducts.filter(filterAllProducts);
+document.querySelector("#show-basket")?.addEventListener("click", viewBasket); // add event listener to the basket if it exists on the document
+
+
+
+const navbar = document.querySelector("#navMenu");
+
+window.onscroll = () => {
+  if (window.scrollY > 10) {
+    navbar.classList.add("navScroll");
+  } else {
+    navbar.classList.remove("navScroll");
   }
-  displayAllProducts(filteredProducts);
-}
+};
 
-// Returns all products
-function filterAllProducts(){
-  return allProducts;
-}
-
-// Returns all products with category name "men's clothing"
-function filterMaleClothing(product){
-  return product.category === "men's clothing"
-}
-
-// Returns all products with category name "women's clothing"
-function filterWomenClothing(product){
-  return product.category === "women's clothing"
-}
-
-// Returns all products with category name "jewelery"
-function filterJewelery(product){
-  return product.category === "jewelery"
-}
-
-// Returns all products with category name "electronics"
-function filterElectronics(product){
-  return product.category === "electronics"
-}

@@ -1,5 +1,7 @@
 "use strict";
 
+import { calculateTotalPrice } from "./calculateTotalPrice.js"
+
 const userBasket = JSON.parse(localStorage.getItem("basket")) ?? []; // assign userBasket to the content of basket in local storage if it exists, otherwise assign it an empty array
 /* ↓ same as below, but in one line ↓
   if (JSON.parse(localStorage.getItem("basket")) !== null) {
@@ -14,14 +16,15 @@ function productExistsInBasket(product) {
   return userBasket.some(productInBasket => productInBasket.id === product.id)
 }
 
-// add product to cart
-function addToCart(product) {
+// add product to basket
+function addToBasket(product) {
   //console.log(`Added ${product.title} to basket`)
 
   const productObj = {
     id: product.id,
     title: product.title,
     price: product.price,
+    image: product.image,
     quantity: 1
   }
 
@@ -35,7 +38,35 @@ function addToCart(product) {
   // update basket local storage
   localStorage.setItem("basket", JSON.stringify(userBasket));
 
-  console.log("userBasket:", userBasket)
+  //console.log("userBasket:", userBasket)
 }
 
-export { addToCart };
+function viewBasket() {
+  const basketModal = document.querySelector("#basket-modal");
+  const basketContainer = basketModal.querySelector("ul");
+
+  const userBasket = JSON.parse(localStorage.getItem("basket")) ?? []; // assign userBasket to the content of basket in local storage if it exists, otherwise assign it an empty array
+
+  userBasket.length === 0 ? basketContainer.innerText = "Your cart is empty" : basketContainer.innerText = ""; // display text if the cart is empty, otherwise clear child nodes
+
+  userBasket.forEach(product => {
+    const basketTemplate = document.querySelector("#basket-template").content.cloneNode(true);
+    basketTemplate.querySelector(".basket-img").src = product.image;
+    basketTemplate.querySelector(".basket-img").alt = product.title;
+    basketTemplate.querySelector(".basket-title").textContent = product.title;
+    basketTemplate.querySelector(".basket-quantity").textContent = "Quantity: " + product.quantity;
+    basketTemplate.querySelector(".basket-price").textContent = "$" + (product.price * product.quantity).toFixed(2) + " total";
+    
+    basketContainer.appendChild(basketTemplate);
+  });
+
+  basketModal.querySelector(".basket-total").textContent = "Total: $" + calculateTotalPrice(userBasket);
+
+  basketModal.querySelector(".close-modal").addEventListener("click", () => basketModal.close());
+
+  basketModal.showModal();
+
+  //console.log(userBasket);
+}
+
+export { addToBasket, viewBasket };

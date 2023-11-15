@@ -1,112 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/checkout.css" />
-    
-    <script type="module" src="./js/app.js"></script>
+    <script type="module" src="js/checkoutAnimations.js" defer></script>
+    <script type="module" src="js/checkout.js" defer></script>
+    <script type="module" src="./js/app.js" defer></script>
+    <script type="module" src="./js/logout.js" defer></script>
     <title>Webshop | Check out</title>
   </head>
+
   <body>
     <header>
-      <nav id="tempNav">
-        <a href="checkout.html">Checkout</a>
-        <a href="index.html">Login</a>
-        <a href="shop.html">Products</a>
-        <a href="signup.html">Sign up</a>
-      </nav>
-       <nav id="navMenu">
-      <div id="navContainer">
-        <a href="">
-          <img src="images/logo.svg" alt="logo">
-        </a>
-        <div id="menuDiv">
-          <p>Welcome</p>
-          <a href="checkout.html">
-            <img src="images/basket.svg" alt="basket">
+      <nav id="navMenu">
+        <div id="navContainer">
+          <a href="shop.html">
+            <img src="images/logo.svg" alt="logo">
           </a>
-          <button id="logout">Logout</button>
+          <p>Welcome <span id="user-name"></span></p>
+          <div id="menuDiv">
+            <button id="logout">
+              <img src="images/logout.svg" alt="logout">
+            </button>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
     </header>
+    <main id="checkout" class="opacity">
+      <form action="" onsubmit="return false">
 
-    <main>
-      <form action="">
-       
-        <h4>Contact Information</h4>
-        <label for="contactEmail">E-mail</label>
-        <input type="text" name="contactEmail" id="contactEmail">
-        <fieldset>
+        <h1>Contact Information</h1>
+        <fieldset id="shippingAddress">
+          <label for="contactEmail">E-mail
+            <input type="text" name="contactEmail" id="contactEmail">
+          </label>
           <h4>Shipping Address</h4>
           <!-- First & Last Name -->
-          <div>
-            <label for="firstName">First Name</label>
-            <input type="text" name="firstName" id="firstName">
-            <label for="lastName">Last Name</label>
-            <input type="text" name="lastName" id="lastName">
+          <div class="countryDiv">
+            <label for="firstName">First Name
+              <input type="text" name="firstName" id="firstName">
+            </label>
+            <label for="lastName">Last Name
+              <input type="text" name="lastName" id="lastName">
+            </label>
           </div>
           <!-- Address -->
-          <label for="shipAddress">Address</label>
-          <input type="text" name="shipAddress" id="shipAddress">
+          <label for="shipAddress">Address
+            <input type="text" name="shipAddress" id="shipAddress">
+          </label>
           <!-- Country Zip Code -->
-          <div>
-            <label for="shipCountry">Country</label>
-            <input type="text" name="shipCountry" id="shipCountry">
-            <label for="shipZipCode">Zip Code</label>
-            <input type="text" name="shipZipCode" id="shipZipCode">
+          <div class="countryDiv">
+            <label for="shipCountry">Country
+              <input type="text" name="shipCountry" id="shipCountry">
+            </label>
+            <label for="shipZipCode">Zip Code
+              <input type="text" name="shipZipCode" id="shipZipCode">
+            </label>
           </div>
           <!-- Phone Number -->
-          <label for="shipPhone">Phone Number</label>
-          <input type="text" name="shipPhone" id="shipPhone">
+          <label for="shipPhone">Phone Number
+            <input type="text" name="shipPhone" id="shipPhone">
+          </label>
         </fieldset>
-        <fieldset>
+
+        <fieldset id="billingAddress" class="slideToRight">
           <h4>Billing Information</h4>
           <!-- Address -->
-          <label for="billAddress">Address</label>
-          <input type="text" name="billAddress" id="billAddress">
+          <label for="billAddress">Address
+            <input type="text" name="billAddress" id="billAddress">
+          </label>
           <!-- Country Zip Code -->
-          <div>
-            <label for="billCountry">Country</label>
-            <input type="text" name="billCountry" id="billCountry">
-            <label for="billZipCode">Zip Code</label>
-            <input type="text" name="billZipCode" id="billZipCode">
+          <div class="countryDiv">
+            <label for="billCountry">Country
+              <input type="text" name="billCountry" id="billCountry">
+            </label>
+            <label for="billZipCode">Zip Code
+              <input type="text" name="billZipCode" id="billZipCode">
+            </label>
           </div>
           <!-- Phone Number -->
-          <label for="billPhone">Phone Number</label>
-          <input type="text" name="billPhone" id="billPhone">
+          <label for="billPhone">Phone Number
+
+            <input type="text" name="billPhone" id="billPhone">
+          </label>
         </fieldset>
-        <fieldset>
+        <fieldset id="creditCard" class="slideToRight">
+          <h4>Credit Card Information</h4>
           <!-- Credit Card -->
-          
+          <label for="cardName">
+            Cardholder Name
+            <input type="text" name="cardName" id="cardName">
+          </label>
+          <label for="cardNumber">
+            Card Number
+            <input type="text" name="cardNumber" id="cardNumber" minlength="1" maxlength="19">
+          </label>
+          <div class="countryDiv">
+            <label for="cardExpiretion">
+              Expiretion
+              <input type="text" name="cardExpiretion" id="cardExpiretion">
+            </label>
+            <label for="cardCCV">
+              CCV/CVC
+              <input type="text" name="cardCCV" id="cardCCV">
+            </label>
+          </div>
         </fieldset>
+        <div id="submitDiv" class="countryDiv">
+          <div id="indictor">
+            <div id="indictor0" class="indictor selectedIndictor"></div>
+            <div id="indictor1" class="indictor"></div>
+            <div id="indictor2" class="indictor"></div>
+          </div>
+          <button id="pre" class="hide">Previous</button>
+          <button id="next">Next</button>
+          <a id="conShopping" href="shop.html"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+            </svg>
+            Continue Shopping</a>
+          <button id="subFormBtn" class="hide">Submit</button>
+        </div>
       </form>
-      
+
+      <template id="basket-temp">
+        <article class="basket-product">
+          <div class="basket-img-container">
+            <img src="" alt="" class="basket-img">
+          </div>
+          <div class="basket-text-div">
+            <h4 class="basket-title"></h4>
+            <p class="basket-quantity"></p>
+            <p class="basket-price"></p>
+          </div>
+
+        </article>
+      </template>
+      <section id="productContainer">
+
+      </section>
     </main>
 
     <footer>
       <div id="footerWidth">
         <address>
-          Guldbergsgade 29N,<br>
-          2200 Copenhagen <br>
-          Denmark <br>
-
+          <p>Guldbergsgade 29N,</p>
+          <p>2200 Copenhagen</p>
+          <p>Denmark</p>
           <a href="tel:+4512345678"><img src="images/phone.svg" alt=""> (+45) 12 34 56 78</a>
           <a href="mailto:info@company.com"><img src="images/Email.svg" alt=""> info@company.com</a>
         </address>
         <div id="divLinks1">
-          <a href="">About us</a>
-          <a href="">Careers</a>
-          <a href="">Contact us</a>
+          <a href="#0">About us</a>
+          <a href="#0">Careers</a>
+          <a href="#0">Contact us</a>
         </div>
-        <div id="" class="divLinksTwo">
-          <a href="">Terms & Conditions</a>
-          <a href="">Privacy Policy</a>
+        <div id="#0" class="divLinksTwo">
+          <a href="#0">Terms & Conditions</a>
+          <a href="#0">Privacy Policy</a>
           <div>
-            <a href="www.instagram.com"><img src="images/instagram_circle.svg" alt="Instagram Logo, in black/white"></a>
-            <a href="www.facebook.com"><img src="images/Facebook_circled.svg" alt="Facebook Logo, in black/white"></a>
-            <a href="www.twitter.com"><img src="images/twitter_circled.svg" alt="Twitter Logo, in black/white"></a>
+            <a href="#0"><img src="images/instagram_circle.svg" alt="Instagram Logo, in black/white"></a>
+            <a href="#0"><img src="images/Facebook_circled.svg" alt="Facebook Logo, in black/white"></a>
+            <a href="#0"><img src="images/twitter_circled.svg" alt="Twitter Logo, in black/white"></a>
           </div>
         </div>
       </div>

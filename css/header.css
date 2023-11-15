@@ -1,40 +1,63 @@
-#navMenu{
-    background-color: var(--color-white);
-       box-shadow: 0px 8px 24px 0px var(--color-card-drop-shadow);
-       font-size: var(--text-base);
+#navMenu {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  font-size: var(--text-base);
+  padding-block: var(--p4);
+  transition: 0.1s ease-in-out;
+}
+.navScroll {
+  background-color: var(--color-white);
+  box-shadow: 0px 8px 24px 0px var(--color-card-drop-shadow);
 }
 
 #navContainer {
   max-width: 1440px;
   margin-inline: auto;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   padding-inline: var(--p16);
   padding-block: var(--p2);
-  
-}
-#navContainer a{
-    display: flex;
 }
 
-#menuDiv{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+#navContainer a {
+  width: max-content;
+  line-height: 0;
+}
+
+#navContainer > p {
+  text-align: center;
+}
+
+#menuDiv {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-left: auto;
+}
+
+#show-basket {
+  border: none;
+  background-color: transparent;
+  line-height: 0;
+}
+
+#user-name {
+  font-weight: 700;
 }
 
 
-#logout{
- background-color: var(--color-white);
- color: var(--color-primary);
- border-radius: 0.5rem;
- border: none;
- padding: 0.5rem 0.5rem;
- /* box-shadow: 0px 8px 24px 0px var(--color-card-drop-shadow); */
- font-size: var(--text-base);
- transition: all 0.5s ease;
- cursor: pointer; 
+#logout {
+  background: none;
+  color: var(--color-primary);
+  border-radius: 0.5rem;
+  border: none;
+  /* box-shadow: 0px 8px 24px 0px var(--color-card-drop-shadow); */
+  font-size: var(--text-base);
+  transition: all 0.15s ease;
+  cursor: pointer;
+  line-height: 0;
   /*   background-color: var(--color-grey);
     text-align: center;
     text-decoration: none;
@@ -44,19 +67,19 @@
     color: var(--color-primary);
     border-radius: 0.5rem;
     font-size: var(--text-base);
-    transition: all 0.5s ease;
+    transition: all 0.15s ease;
     cursor: pointer; 
     box-shadow: 0px 8px 24px 0px var(--color-card-drop-shadow); */
 }
 
-#logout:hover{
-    background-color: var(--color-dark);
-    color: var(--color-white);
- 
-}
+/* #logout:hover {
+  background-color: var(--color-dark);
+  color: var(--color-white);
 
-@media (max-width: 768px){
- #navContainer{
-   padding-inline: var(--p4);
- }
+} */
+
+@media (max-width: 768px) {
+  #navContainer {
+    padding-inline: var(--p4);
+  }
 }

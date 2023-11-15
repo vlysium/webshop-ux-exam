@@ -3,6 +3,7 @@ footer{
     padding: 4rem;
     background-color: var(--color-white);
     font-size: var(--text-base);
+    margin-top: auto;
 }
 #footerWidth{
     max-width: 1440px;
@@ -13,9 +14,7 @@ footer{
      gap: var(--p8);
     justify-items: center;
 }
-footer a{
-    color: var(--color-black);
-}
+
 footer a:hover{
     text-decoration: underline;
 }
@@ -47,10 +46,18 @@ footer address a{
     gap: var(--p4);
 }
 .divLinksTwo img{
-    transition: 0.3s;
+    transition: all 0.15s;
 }
 .divLinksTwo img:hover{
     filter: invert(0.5);
+}
+
+.divLinksTwo img{
+    filter: invert(20%) sepia(20%) saturate(717%) hue-rotate(208deg) brightness(95%) contrast(88%);
+}
+
+address img {
+    filter: invert(20%) sepia(20%) saturate(717%) hue-rotate(208deg) brightness(95%) contrast(88%);
 }
 
 @media (max-width: 640px) {
@@ -61,3 +68,4 @@ footer address a{
     justify-items: start;
   }
 }
+

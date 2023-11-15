@@ -8,7 +8,8 @@
   --color-white: #ffffff;
   --color-black: #000000;
   --color-grey: #f7f7f7;
-  --color-active-filter: #DBDBDB;
+  --color-active-filter: #dbdbdb;
+  --color-filter-hover: #ededed;
   --color-input-border: rgba(179, 179, 179, 0.692);
   --color-primary-darker: rgb(63, 13, 172);
   --color-card-drop-shadow: rgba(24, 39, 72, 0.15);
@@ -51,23 +52,32 @@
   box-sizing: border-box;
   font-family: var(--font-sans);
   font-size: var(--text-base);
+  color: var(--color-dark);
 }
 
-/* *insert global styles here* */
+*::selection {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
 body {
   background-color: var(--color-grey);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 
-main{
+main {
   max-width: 1440px;
   margin-inline: auto;
   padding: var(--p8) var(--p16);
 }
-@media (max-width: 768px){
- main{
-   padding: var(--p8) var(--p4);
- }
+
+@media (max-width: 768px) {
+  main {
+    padding: var(--p8) var(--p4);
+  }
 }
 
 img {
@@ -76,7 +86,7 @@ img {
   object-fit: cover;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -88,7 +98,7 @@ li {
   list-style-type: none;
 }
 
-#tempNav{
+#tempNav {
   position: absolute;
   top: 0;
 }
