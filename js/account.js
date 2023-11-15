@@ -1,5 +1,5 @@
 "use strict";
-import {matchPassword, validatePassword, validateEmail, checkExistingUserMail, invalidPassword, invalidEmail} from "./validateAccount.js"
+import { matchPassword, validatePassword, validateEmail, checkExistingUserMail, invalidPassword, invalidEmail } from "./validateAccount.js"
 
 const profiles = []
 const baseUrl = "http://localhost:3000"
@@ -62,17 +62,17 @@ function checkUserSignup() {
   let signup_email = form.signup_email.value
   let signup_password = form.signup_password.value
   let signup_repeat_password = form.signup_repeat_password.value
-  
+
   // if email already exist
   if (checkExistingUserMail(signup_email, profiles)) {
   } else {
     console.log("false mail")
     return
   }
-  if(!(validateEmail(signup_email))){
+  if (!(validateEmail(signup_email))) {
     invalidEmail(true, "Starts with one or more word characters, hyphens, or dots. Followed by the at symbol (@). Followed by one or more groups of subdomains, each containing word characters, hyphens, and a dot. Ends with a top-level domain (TLD) containing between 2 and 4 word characters")
     return
-  } else{
+  } else {
     invalidEmail(false)
   }
 
@@ -82,11 +82,11 @@ function checkUserSignup() {
     console.log("false password")
     return
   }
-   if(!validatePassword(signup_password)){
+  if (!validatePassword(signup_password)) {
     console.log("invalid password")
     invalidPassword(true, "At least one digit. At least one lowercase letter. At least one uppercase letter. At least one letter (either uppercase or lowercase). A minimum length of 8 characters.")
     return
-  } else{
+  } else {
     invalidPassword(false)
   }
   // push new user to DB

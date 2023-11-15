@@ -56,7 +56,7 @@ function viewBasket() {
     basketTemplate.querySelector(".basket-title").textContent = product.title;
     basketTemplate.querySelector(".basket-quantity").textContent = "Quantity: " + product.quantity;
     basketTemplate.querySelector(".basket-price").textContent = "$" + (product.price * product.quantity).toFixed(2) + " total";
-    
+
     basketContainer.appendChild(basketTemplate);
   });
 

@@ -1,6 +1,6 @@
 function calculateTotalPrice(products) {
   const initialTotalPrice = 0;
-  
+
   /* 
     using the reduce function to calculate the total price in the basket,
     by multiplying each product price with its quantity,

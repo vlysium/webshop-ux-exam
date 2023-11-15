@@ -1,99 +1,100 @@
 @import url("./global.css");
 
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 
 }
 
-.inputBorder{
-    border: solid 1px red;
+.inputBorder {
+  border: solid 1px red;
 }
 
-a{
-    color: var(--color-primary);
-    font-weight: 700;
+a {
+  color: var(--color-primary);
+  font-weight: 700;
 }
 
-p{
-    color: var(--color-primary);
-}
-
-
-#formSubmitSignup{
-    background-color: var(--color-primary);
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    padding:  var(--p2);
-    width: 100%;
-    color: var(--color-white);
-    border-radius: var(--p2);;
-    font-size: var(--text-large);
-    transition: all 0.15s ease;
-    cursor: pointer;
+p {
+  color: var(--color-primary);
 }
 
 
-#formSubmitSignup:hover{
-    background-color: var(--color-primary-darker);
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    padding:  var(--p2);
-    width: 100%;
-    color: var(--color-white);
-    border-radius: var(--p2);
-    font-size: var(--text-large);
+#formSubmitSignup {
+  background-color: var(--color-primary);
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  padding: var(--p2);
+  width: 100%;
+  color: var(--color-white);
+  border-radius: var(--p2);
+  ;
+  font-size: var(--text-large);
+  transition: all 0.15s ease;
+  cursor: pointer;
 }
 
 
-label{
-    font-size: var(--text-base);
-    font-weight: 700;
-}
-
-input{
-    border: 0.1em var(--color-input-border) solid;
-    border-radius: var(--p2);
-    padding: var(--p2);
-    width: 100%;
-    margin-bottom: var(--p8);
-}
-
-#signup_password{
-    margin-bottom: 0%;
-}
-
-#requirements{
-    margin-bottom: var(--p8);
+#formSubmitSignup:hover {
+  background-color: var(--color-primary-darker);
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  padding: var(--p2);
+  width: 100%;
+  color: var(--color-white);
+  border-radius: var(--p2);
+  font-size: var(--text-large);
 }
 
 
-main{
-      max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    background-color: var(--color-white);
-    padding: var(--p16);
-    border-radius: var(--p4);
-    /* margin-top: var(--p20); */
-    filter: drop-shadow(0 0 0.75rem var(--color-dark-low-opacity));
+label {
+  font-size: var(--text-base);
+  font-weight: 700;
+}
+
+input {
+  border: 0.1em var(--color-input-border) solid;
+  border-radius: var(--p2);
+  padding: var(--p2);
+  width: 100%;
+  margin-bottom: var(--p8);
+}
+
+#signup_password {
+  margin-bottom: 0%;
+}
+
+#requirements {
+  margin-bottom: var(--p8);
 }
 
 
-form{
-    width: 100%;
-    height: 50vh;
+main {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  background-color: var(--color-white);
+  padding: var(--p16);
+  border-radius: var(--p4);
+  /* margin-top: var(--p20); */
+  filter: drop-shadow(0 0 0.75rem var(--color-dark-low-opacity));
 }
 
-.circle{
+
+form {
+  width: 100%;
+  height: 50vh;
+}
+
+.circle {
   position: absolute;
   clip-path: ellipse(50% 100% at 100% 50%);
   width: 100vw;
@@ -103,25 +104,26 @@ form{
   inset: 0;
 }
 
-body{
-    background-image:linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("../images/tshirt-bg\ 1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
+body {
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("../images/tshirt-bg\ 1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
 }
 
-h1{
-     margin-bottom: var(--p12);
-     font-size: var(--text-4xlarge);
+h1 {
+  margin-bottom: var(--p12);
+  font-size: var(--text-4xlarge);
 }
 
-.center{
-    text-align: center;
-    padding:  var(--p6);
+.center {
+  text-align: center;
+  padding: var(--p6);
 }
+
 @media only screen and (max-width: 800px) {
-    main{
+  main {
     max-width: 92%;
     display: flex;
     flex-direction: column;
@@ -131,10 +133,10 @@ h1{
     border-radius: 1rem;
     /* margin-top: var(--p16); */
     filter: drop-shadow(0 0 0.75rem var(--color-dark-low-opacity));
-    }
+  }
 
-    form{
+  form {
     width: 100%;
     height: 60vh;
-    }
+  }
 }

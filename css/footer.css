@@ -1,71 +1,79 @@
-
-footer{
-    padding: 4rem;
-    background-color: var(--color-white);
-    font-size: var(--text-base);
-    margin-top: auto;
-}
-#footerWidth{
-    max-width: 1440px;
-    width: 100%;
-    margin-inline: auto;
-    display: grid;
-     grid-template-columns: 1fr 1fr 1fr;
-     gap: var(--p8);
-    justify-items: center;
+footer {
+  padding: 4rem;
+  background-color: var(--color-white);
+  font-size: var(--text-base);
+  margin-top: auto;
 }
 
-footer a:hover{
-    text-decoration: underline;
-}
-footer address{
-    display: grid;
-    gap: var(--p2);
-}
-footer address img{
-    width: var(--p6);
-}
-footer address a{
-    display: flex;
-    align-items: center;
-    gap: var(--p2);
-}
-#divLinks1{
-    display: flex;
-    flex-direction: column;
-    gap: var(--p2);
-}
-.divLinksTwo{
-    display: flex;
-    flex-direction: column;
-    gap: var(--p2);
-}
-.divLinksTwo div{
-    display: flex;
-    justify-content: space-between;
-    gap: var(--p4);
-}
-.divLinksTwo img{
-    transition: all 0.15s;
-}
-.divLinksTwo img:hover{
-    filter: invert(0.5);
+#footerWidth {
+  max-width: 1440px;
+  width: 100%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--p8);
+  justify-items: center;
 }
 
-.divLinksTwo img{
-    filter: invert(20%) sepia(20%) saturate(717%) hue-rotate(208deg) brightness(95%) contrast(88%);
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer address {
+  display: grid;
+  gap: var(--p2);
+}
+
+footer address img {
+  width: var(--p6);
+}
+
+footer address a {
+  display: flex;
+  align-items: center;
+  gap: var(--p2);
+}
+
+#divLinks1 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--p2);
+}
+
+.divLinksTwo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--p2);
+}
+
+.divLinksTwo div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--p4);
+}
+
+.divLinksTwo img {
+  transition: all 0.15s;
+}
+
+.divLinksTwo img:hover {
+  filter: invert(0.5);
+}
+
+.divLinksTwo img {
+  filter: invert(20%) sepia(20%) saturate(717%) hue-rotate(208deg) brightness(95%) contrast(88%);
 }
 
 address img {
-    filter: invert(20%) sepia(20%) saturate(717%) hue-rotate(208deg) brightness(95%) contrast(88%);
+  filter: invert(20%) sepia(20%) saturate(717%) hue-rotate(208deg) brightness(95%) contrast(88%);
 }
 
 @media (max-width: 640px) {
+
   /* For mobile phones: */
-  #footerWidth{
+  #footerWidth {
     grid-template-columns: 1fr;
     width: fit-content;
     justify-items: start;
   }
 }
-
