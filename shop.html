@@ -11,19 +11,19 @@
   </head>
 
   <body>
-    <header>
-      <nav id="navMenu">
-        <div id="navContainer">
+    <header id="nav-menu">
+      <nav>
+        <div id="nav-container">
           <a href="shop.html">
-            <img src="images/logo.svg" alt="logo">
+            <img src="./images/logo.svg" alt="logo">
           </a>
           <p>Welcome <span id="user-name"></span></p>
-          <div id="menuDiv">
-            <button id="show-basket">
-              <img src="images/basket.svg" alt="basket">
+          <div id="menu-div">
+            <button id="show-basket" tabindex="1">
+              <img src="./images/basket.svg" alt="basket">
             </button>
-            <button id="logout">
-              <img src="images/logout.svg" alt="logout">
+            <button id="logout" tabindex="2">
+              <img src="./images/logout.svg" alt="logout">
             </button>
           </div>
         </div>
@@ -34,41 +34,42 @@
         <div class="splash-cta">
           <div class="splash-cta-container">
             <h1>SAVE UP TO 40% ON YOUR FIRST ORDER</h1>
-            <h4>Use promocode: NEWCUSTOMER</h4>
-            <button>Shop now <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            <h2>Use promocode: NEWCUSTOMER</h2>
+            <button tabindex="3">Shop now
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-              </svg>
+              </svg> -->
 
             </button>
           </div>
         </div>
         <div class="splash-image-container">
-          <img src="https://i.ibb.co/HYJBSf6/clothes.jpg" class="splash-image-placeholder" />
+          <img src="https://i.ibb.co/HYJBSf6/clothes.jpg" class="splash-image-placeholder" alt="splash image" />
         </div>
       </header>
-      <section>
+      <section id="catalog">
         <aside>
           <ul class="side-nav">
             <li>
-              <input type="radio" name="filter" id="filter-all" value="all" checked />
-              <label for="filter-all">All categories</label>
+              <input type="radio" name="filter" id="filter-all" value="all" checked/>
+              <label for="filter-all" tabindex="3">All categories</label>
             </li>
             <li>
-              <input type="radio" name="filter" id="filter-womens-clothing" value="women's clothing" />
-              <label for="filter-womens-clothing">Womens clothing</label>
+              <input type="radio" name="filter" id="filter-womens-clothing" value="women's clothing"/>
+              <label for="filter-womens-clothing" tabindex="4">Womens clothing</label>
             </li>
             <li>
               <input type="radio" name="filter" id="filter-mens-clothing" value="men's clothing" />
-              <label for="filter-mens-clothing">Mens clothing</label>
+              <label for="filter-mens-clothing" tabindex="5">Mens clothing</label>
             </li>
             <li>
               <input type="radio" name="filter" id="filter-jewelery" value="jewelery" />
-              <label for="filter-jewelery">Jewelry</label>
+              <label for="filter-jewelery" tabindex="6">Jewelry</label>
             </li>
             <li>
               <input type="radio" name="filter" id="filter-electronics" value="electronics" />
-              <label for="filter-electronics">Electronics</label>
+              <label for="filter-electronics" tabindex="7">Electronics</label>
             </li>
           </ul>
         </aside>
@@ -77,7 +78,7 @@
           <template id="product-template">
             <li>
               <article class="single-product">
-                <img src="" alt="" class="product-img">
+                <img src="" alt="" class="product-img" loading="lazy">
                 <div class="text-container">
                   <h4 class="product-title"></h4>
                   <p class="product-price"></p>
@@ -91,11 +92,11 @@
       </section>
 
       <dialog id="product-modal">
-        <button class="close-modal">×</button>
+        <button aria-label="close modal" class="close-modal">×</button>
         <img src="" alt="" class="product-img">
         <div class="modal-content">
           <div>
-            <h4 class="product-title"></h4>
+            <h3 class="product-title"></h3>
             <p class="product-price"></p>
             <button class="product-add-to-cart">Add to cart</button>
             <p class="product-description"></p>
@@ -108,11 +109,11 @@
       </dialog>
 
       <dialog id="basket-modal">
-        <button class="close-modal">×</button>
+        <button aria-label="close modal" class="close-modal">×</button>
         <div>
           <template id="basket-template">
             <li class="basket-product">
-              <img src="" alt="" class="basket-img">
+              <img src="" alt="" class="basket-img" loading="lazy">
               <div>
                 <h4 class="basket-title"></h4>
                 <p class="basket-quantity"></p>
@@ -128,29 +129,30 @@
           </div>
         </div>
       </dialog>
+
     </main>
 
     <footer>
-      <div id="footerWidth">
+      <div id="footer-width">
         <address>
           <p>Guldbergsgade 29N,</p>
           <p>2200 Copenhagen</p>
           <p>Denmark</p>
-          <a href="tel:+4512345678"><img src="images/phone.svg" alt=""> (+45) 12 34 56 78</a>
-          <a href="mailto:info@company.com"><img src="images/Email.svg" alt=""> info@company.com</a>
+          <a href="tel:+4512345678"><img src="./images/phone.svg"> (+45) 12 34 56 78</a>
+          <a href="mailto:info@company.com"><img src="./images/Email.svg"> info@company.com</a>
         </address>
-        <div id="divLinks1">
+        <div id="div-links-one">
           <a href="#0">About us</a>
           <a href="#0">Careers</a>
           <a href="#0">Contact us</a>
         </div>
-        <div id="#0" class="divLinksTwo">
+        <div id="#0" class="div-links-two">
           <a href="#0">Terms & Conditions</a>
           <a href="#0">Privacy Policy</a>
           <div>
-            <a href="#0"><img src="images/instagram_circle.svg" alt="Instagram Logo, in black/white"></a>
-            <a href="#0"><img src="images/Facebook_circled.svg" alt="Facebook Logo, in black/white"></a>
-            <a href="#0"><img src="images/twitter_circled.svg" alt="Twitter Logo, in black/white"></a>
+            <a href="#0"><img src="./images/instagram_circle.svg" alt="Instagram Logo, in black/white"></a>
+            <a href="#0"><img src="./images/Facebook_circled.svg" alt="Facebook Logo, in black/white"></a>
+            <a href="#0"><img src="./images/twitter_circled.svg" alt="Twitter Logo, in black/white"></a>
           </div>
         </div>
       </div>

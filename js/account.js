@@ -19,13 +19,13 @@ getProfiles()
 /* ---------- EventListeners ---------- */
 
 // For login page
-if (document.querySelector("#formSubmitLogin")) {
-  document.querySelector("#formSubmitLogin").addEventListener('click', checkUserLogin)
+if (document.querySelector("#form-submit-login")) {
+  document.querySelector("#form-submit-login").addEventListener('click', checkUserLogin)
 }
 
 // For signup page
-if (document.querySelector("#formSubmitSignup")) {
-  document.querySelector("#formSubmitSignup").addEventListener('click', checkUserSignup)
+if (document.querySelector("#form-submit-signup")) {
+  document.querySelector("#form-submit-signup").addEventListener('click', checkUserSignup)
 }
 
 
@@ -34,14 +34,15 @@ if (document.querySelector("#formSubmitSignup")) {
 /* Check if user entered the correct infomation */
 /* This does not work as i completely forgot about adding the user to session storage
 once they have logged in, and also i need to compare the login info with Json server not Session storage */
-function checkUserLogin() {
-  let form = event.target.form
-  let login_email = form.login_email.value
-  let login_password = form.login_password.value
+function checkUserLogin(event) {
+  event.preventDefault()
+  const form = event.target.form
+  const loginEmail = form.login_email.value
+  const loginPassword = form.login_password.value
 
   profiles.forEach((profile, i) => {
     console.log(profile)
-    if (profile.email === login_email && profile.password === login_password) {
+    if (profile.email === loginEmail && profile.password === loginPassword) {
       console.log("Welcome")
       const userInfo = { 'email': profile.email }
       const jsonArray = JSON.stringify(userInfo);
@@ -57,19 +58,20 @@ function checkUserLogin() {
 
 /* ---------- SIGN UP -------- */
 
-function checkUserSignup() {
-  let form = event.target.form
-  let signup_email = form.signup_email.value
-  let signup_password = form.signup_password.value
-  let signup_repeat_password = form.signup_repeat_password.value
+function checkUserSignup(event) {
+  event.preventDefault()
+  const form = event.target.form
+  const signupEmail = form.signup_email.value
+  const signupPassword = form.signup_password.value
+  const signupRepeatPassword = form.signup_repeat_password.value
 
   // if email already exist
-  if (checkExistingUserMail(signup_email, profiles)) {
+  if (checkExistingUserMail(signupEmail, profiles)) {
   } else {
     console.log("false mail")
     return
   }
-  if (!(validateEmail(signup_email))) {
+  if (!(validateEmail(signupEmail))) {
     invalidEmail(true, "Starts with one or more word characters, hyphens, or dots. Followed by the at symbol (@). Followed by one or more groups of subdomains, each containing word characters, hyphens, and a dot. Ends with a top-level domain (TLD) containing between 2 and 4 word characters")
     return
   } else {
@@ -77,12 +79,12 @@ function checkUserSignup() {
   }
 
   // check id both password match
-  if (matchPassword(signup_password, signup_repeat_password, profiles)) {
+  if (matchPassword(signupPassword, signupRepeatPassword, profiles)) {
   } else {
     console.log("false password")
     return
   }
-  if (!validatePassword(signup_password)) {
+  if (!validatePassword(signupPassword)) {
     console.log("invalid password")
     invalidPassword(true, "At least one digit. At least one lowercase letter. At least one uppercase letter. At least one letter (either uppercase or lowercase). A minimum length of 8 characters.")
     return
@@ -90,11 +92,11 @@ function checkUserSignup() {
     invalidPassword(false)
   }
   // push new user to DB
-  const newUser = { 'email': signup_email, 'password': signup_password }
+  const newUser = { 'email': signupEmail, 'password': signupPassword }
   postUserToDb(newUser)
 
   // add user to session
-  const userInfo = { 'email': signup_email }
+  const userInfo = { 'email': signupEmail }
   const jsonArray = JSON.stringify(userInfo);
   sessionStorage.setItem('user', jsonArray);
 
@@ -109,9 +111,9 @@ function checkUserSignup() {
 // Send data om ny bruge til Json Server
 async function postUserToDb(newUser) {
   // link til server
-  let url = baseUrl + '/profiles';
+  const url = baseUrl + '/profiles';
   // post da vi sender data
-  let httpMethod = 'POST';
+  const httpMethod = 'POST';
 
   // Fetch
   const response = await fetch(url, {
@@ -129,3 +131,22 @@ async function postUserToDb(newUser) {
 
 }
 
+
+// Virker ikke helt men ift. at skifte farve hvis den lever op til password krav
+/* window.location.pathname.includes("signup.html") && function() {
+  const inputPassword = document.querySelector("#signup-password");
+  const lenght = document.querySelector("#lenght");
+
+  inputPassword.onkeyup = function() {
+    // Validate lowercase letters
+    const lowerCaseLetters = /[a-z]/g;
+    if(inputPassword.value.match(lowerCaseLetters)) {  
+      lenght.classList.remove("invalid");
+      lenght.classList.add("valid");
+    } else {
+      lenght.classList.remove("valid");
+      lenght.classList.add("invalid");
+    }
+  }
+}
+ */

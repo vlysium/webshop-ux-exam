@@ -41,8 +41,7 @@ main {
   color: var(--color-white);
 }
 
-.splash-cta-container h4 {
-
+.splash-cta-container h2 {
   font-weight: 300;
   color: var(--color-grey);
   font-size: var(--text-large);
@@ -51,6 +50,7 @@ main {
 .splash-cta-container button {
   display: flex;
   align-items: center;
+  line-height: 1.5;
   width: 100%;
   gap: 0.5rem;
   width: fit-content;
@@ -65,14 +65,20 @@ main {
   transition: 0.3s;
 }
 
-.splash-cta-container button svg {
-  width: 1.5rem;
+.splash-cta-container button::after {
+  content: "→";
+  color: inherit;
 }
 
 .splash-cta-container button:hover {
   background-color: var(--color-primary);
   color: var(--color-white);
 }
+
+/* .splash-cta-container button svg {
+  width: 1.5rem;
+}*/
+
 
 .splash-image-container {
   position: relative;
@@ -121,11 +127,12 @@ main {
 
 /* ---------- PRODUCR DISPLAY/PRODUCT GRID ---------- */
 
-section {
+section#catalog {
   display: grid;
   grid-template-columns: 12rem 1fr;
   gap: 4.5rem;
-  padding-block: 4rem
+  padding-block: 4rem;
+  scroll-margin: 4rem;
 }
 
 #all-products {
@@ -187,7 +194,7 @@ section {
 
 .side-nav {
   position: sticky;
-  top: 4rem;
+  top: 8rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -227,7 +234,7 @@ section {
 }
 
 @media (max-width: 890px) {
-  section {
+  section#catalog {
     grid-template-columns: 1fr;
   }
 
@@ -281,15 +288,16 @@ section {
 
 .close-modal {
   position: absolute;
-  top: 0;
-  right: 1.5rem;
+  top: 1rem;
+  right: 1rem;
   font-size: var(--text-4xlarge);
   background: none;
   color: inherit;
   border: none;
-  padding: 0;
+  padding: 0.5rem;
   cursor: pointer;
   outline: inherit;
+  line-height: 1ch;
 }
 
 .modal-content {
@@ -305,7 +313,7 @@ section {
 
 }
 
-.modal-content h4 {
+.modal-content h3 {
   font-size: var(--text-large);
 }
 
@@ -382,7 +390,6 @@ section {
 #basket-modal>div {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  height: 100%;
 }
 
 #basket-modal h3 {

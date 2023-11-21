@@ -14,26 +14,28 @@
       <h1>Login to your account </h1>
       <h2></h2>
       <!-- Login Form -->
-      <form action="" onsubmit="return false">
+      <form>
 
-        <label for="login_email">
+        <label for="login-email">
           Email
         </label>
-        <input id="login_email" name="login_email" type="email" required>
+        <input id="login-email" name="login_email" type="email" required>
         <!-- Password field, aswell as "forgot password" and "view password" icon -->
         <div>
-          <label for="login_password">
+          <label for="login-password">
             Password
-          </label>
-          <a href="#">Forgot Password?</a>
+          </label>      
+          <a href="#" aria-label="forgotten password link">Forgot Password?</a>
           <div>
-            <input id="login_password" name="login_password" type="password" required>
+            <input id="login-password" name="login_password" type="password" required>
             <!-- "view password" icon-->
-            <button class="hide"><img src="images/view_password.svg" alt="Click to view password"></button>
+            <button class="hide"><img src="./images/view_password.svg" alt="Click to view password"></button>
           </div>
         </div>
-        <button id="formSubmitLogin">Login</button>
-        <p class="center">Don't have an account? <a href="signup.html">Sign up Today!</a></p>
+        <button id="form-submit-login" aria-label="login button">Login</button> 
+        <p class="center">
+          Don't have an account? <a href="signup.html" aria-label="signup link">Sign up Today!</a>
+        </p>
       </form>
 
     </main>

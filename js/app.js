@@ -2,7 +2,7 @@
 
 import { addToBasket, viewBasket } from "./basket.js"
 
-const fetchAllUrl = "https://fakestoreapi.com/products";
+const url = "https://fakestoreapi.com/products";
 const allProducts = [];
 
 const user = JSON.parse(sessionStorage.getItem("user"));
@@ -11,9 +11,14 @@ if (!user) { // 🧙‍♂️ YOU SHALL NOT PASS - without being logged in first
 }
 document.querySelector("#user-name").textContent = user?.email;
 
+const userBasket = JSON.parse(localStorage.getItem("basket")) ?? []; // assign userBasket to the content of basket in local storage if it exists, otherwise assign it an empty array
+if (userBasket.length > 0) {
+  document.querySelector("#show-basket")?.classList.add("notification");
+}
+
 // fetch data from fakestoreapi
 async function getProducts() {
-  const response = await fetch(fetchAllUrl);
+  const response = await fetch(url);
   const allProductsJSON = await response.json();
   allProducts.push(...allProductsJSON);
 
@@ -37,19 +42,15 @@ function displayAllProducts(products) {
   productContainer.innerHTML = ""; // clear all child nodes
 
   // For each product put in title, image and price from the API
-  products.forEach(product => {
+  products.forEach((product) => {
     const productTemplate = document.querySelector("#product-template").content.cloneNode(true);
-
-    // refreshing event listeners to avoid duplication
-    const viewSingleProductEvent = () => viewSingleProduct(product);
-    productTemplate.querySelector("article").removeEventListener("click", viewSingleProductEvent);
 
     productTemplate.querySelector(".product-img").src = product.image;
     productTemplate.querySelector(".product-img").alt = product.title;
     productTemplate.querySelector(".product-title").textContent = truncateText(product.title, 60);
     productTemplate.querySelector(".product-price").textContent = "$" + product.price;
 
-    productTemplate.querySelector("article").addEventListener("click", viewSingleProductEvent);
+    productTemplate.querySelector("article").addEventListener("click", () => viewSingleProduct(product));
 
     productContainer.appendChild(productTemplate);
   });
@@ -107,19 +108,20 @@ function selectFilter(event) {
 
   // display all products if the selected category is "all", otherwise display products matching the respective category
   filterValue == "all" ? displayAllProducts(allProducts) : displayAllProducts(filteredProducts);
+
+  // scroll to section
+  const catalogSection = document.querySelector("#catalog");
+  catalogSection.scrollIntoView({ behavior: "smooth" });
 }
 
 document.querySelector("#show-basket")?.addEventListener("click", viewBasket); // add event listener to the basket if it exists on the document
 
 
-
-const navbar = document.querySelector("#navMenu");
-
-window.onscroll = () => {
+const navbar = document.querySelector("#nav-menu");
+window.addEventListener('scroll', () => {
   if (window.scrollY > 10) {
-    navbar.classList.add("navScroll");
+    navbar.classList.add("nav-scroll");
   } else {
-    navbar.classList.remove("navScroll");
+    navbar.classList.remove("nav-scroll");
   }
-};
-
+});

@@ -38,14 +38,19 @@ function addToBasket(product) {
   // update basket local storage
   localStorage.setItem("basket", JSON.stringify(userBasket));
 
+  // set notification circle on basket icon
+  if (userBasket.length > 0) {
+    document.querySelector("#show-basket").classList.add("notification");
+  }
+
   //console.log("userBasket:", userBasket)
 }
 
 function viewBasket() {
+  const userBasket = JSON.parse(localStorage.getItem("basket")) ?? []; // assign userBasket to the content of basket in local storage if it exists, otherwise assign it an empty array
+  
   const basketModal = document.querySelector("#basket-modal");
   const basketContainer = basketModal.querySelector("ul");
-
-  const userBasket = JSON.parse(localStorage.getItem("basket")) ?? []; // assign userBasket to the content of basket in local storage if it exists, otherwise assign it an empty array
 
   userBasket.length === 0 ? basketContainer.innerText = "Your cart is empty" : basketContainer.innerText = ""; // display text if the cart is empty, otherwise clear child nodes
 

@@ -13,16 +13,16 @@
   </head>
 
   <body>
-    <header>
-      <nav id="navMenu">
-        <div id="navContainer">
+    <header id="nav-menu">
+      <nav>
+        <div id="nav-container">
           <a href="shop.html">
-            <img src="images/logo.svg" alt="logo">
+            <img src="./images/logo.svg" alt="logo">
           </a>
           <p>Welcome <span id="user-name"></span></p>
-          <div id="menuDiv">
+          <div id="menu-div">
             <button id="logout">
-              <img src="images/logout.svg" alt="logout">
+              <img src="./images/logout.svg" alt="logout">
             </button>
           </div>
         </div>
@@ -34,34 +34,34 @@
         <h1>Contact Information</h1>
         <fieldset id="shippingAddress">
           <label for="contactEmail">E-mail
-            <input type="text" name="contactEmail" id="contactEmail">
+            <input type="email" name="contactEmail" id="contactEmail" required>
           </label>
           <h4>Shipping Address</h4>
           <!-- First & Last Name -->
           <div class="countryDiv">
             <label for="firstName">First Name
-              <input type="text" name="firstName" id="firstName">
+              <input type="text" name="firstName" id="firstName" required>
             </label>
             <label for="lastName">Last Name
-              <input type="text" name="lastName" id="lastName">
+              <input type="text" name="lastName" id="lastName" required>
             </label>
           </div>
           <!-- Address -->
           <label for="shipAddress">Address
-            <input type="text" name="shipAddress" id="shipAddress">
+            <input type="text" name="shipAddress" id="shipAddress" required>
           </label>
           <!-- Country Zip Code -->
           <div class="countryDiv">
             <label for="shipCountry">Country
-              <input type="text" name="shipCountry" id="shipCountry">
+              <input type="text" name="shipCountry" id="shipCountry" required>
             </label>
             <label for="shipZipCode">Zip Code
-              <input type="text" name="shipZipCode" id="shipZipCode">
+              <input type="text" name="shipZipCode" id="shipZipCode" required>
             </label>
           </div>
           <!-- Phone Number -->
           <label for="shipPhone">Phone Number
-            <input type="text" name="shipPhone" id="shipPhone">
+            <input type="number" name="shipPhone" id="shipPhone" required>
           </label>
         </fieldset>
 
@@ -69,21 +69,21 @@
           <h4>Billing Information</h4>
           <!-- Address -->
           <label for="billAddress">Address
-            <input type="text" name="billAddress" id="billAddress">
+            <input type="text" name="billAddress" id="billAddress" required>
           </label>
           <!-- Country Zip Code -->
           <div class="countryDiv">
             <label for="billCountry">Country
-              <input type="text" name="billCountry" id="billCountry">
+              <input type="text" name="billCountry" id="billCountry" required>
             </label>
             <label for="billZipCode">Zip Code
-              <input type="text" name="billZipCode" id="billZipCode">
+              <input type="text" name="billZipCode" id="billZipCode" required>
             </label>
           </div>
           <!-- Phone Number -->
           <label for="billPhone">Phone Number
 
-            <input type="text" name="billPhone" id="billPhone">
+            <input type="text" name="billPhone" id="billPhone" required>
           </label>
         </fieldset>
         <fieldset id="creditCard" class="slideToRight">
@@ -91,20 +91,20 @@
           <!-- Credit Card -->
           <label for="cardName">
             Cardholder Name
-            <input type="text" name="cardName" id="cardName">
+            <input type="text" name="cardName" id="cardName" required>
           </label>
           <label for="cardNumber">
             Card Number
-            <input type="text" name="cardNumber" id="cardNumber" minlength="1" maxlength="19">
+            <input type="text" pattern="/^-?\d+\.?\d*$/" name="cardNumber" id="cardNumber" minlength="1" maxlength="16" required>
           </label>
           <div class="countryDiv">
             <label for="cardExpiretion">
               Expiretion
-              <input type="text" name="cardExpiretion" id="cardExpiretion">
+              <input type="text" name="cardExpiretion" id="cardExpiretion" required>
             </label>
             <label for="cardCCV">
               CCV/CVC
-              <input type="text" name="cardCCV" id="cardCCV">
+              <input type="number" name="cardCCV" id="cardCCV" required>
             </label>
           </div>
         </fieldset>
@@ -114,8 +114,8 @@
             <div id="indictor1" class="indictor"></div>
             <div id="indictor2" class="indictor"></div>
           </div>
-          <button id="pre" class="hide">Previous</button>
-          <button id="next">Next</button>
+          <button type="button" id="pre" class="hide">Previous</button>
+          <button type="button" id="next" >Next</button>
           <a id="conShopping" href="shop.html"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
@@ -144,26 +144,26 @@
     </main>
 
     <footer>
-      <div id="footerWidth">
+      <div id="footer-width">
         <address>
           <p>Guldbergsgade 29N,</p>
           <p>2200 Copenhagen</p>
           <p>Denmark</p>
-          <a href="tel:+4512345678"><img src="images/phone.svg" alt=""> (+45) 12 34 56 78</a>
-          <a href="mailto:info@company.com"><img src="images/Email.svg" alt=""> info@company.com</a>
+          <a href="tel:+4512345678"><img src="./images/phone.svg"> (+45) 12 34 56 78</a>
+          <a href="mailto:info@company.com"><img src="./images/Email.svg"> info@company.com</a>
         </address>
-        <div id="divLinks1">
+        <div id="div-links-one">
           <a href="#0">About us</a>
           <a href="#0">Careers</a>
           <a href="#0">Contact us</a>
         </div>
-        <div id="#0" class="divLinksTwo">
+        <div id="#0" class="div-links-two">
           <a href="#0">Terms & Conditions</a>
           <a href="#0">Privacy Policy</a>
           <div>
-            <a href="#0"><img src="images/instagram_circle.svg" alt="Instagram Logo, in black/white"></a>
-            <a href="#0"><img src="images/Facebook_circled.svg" alt="Facebook Logo, in black/white"></a>
-            <a href="#0"><img src="images/twitter_circled.svg" alt="Twitter Logo, in black/white"></a>
+            <a href="#0"><img src="./images/instagram_circle.svg" alt="Instagram Logo, in black/white"></a>
+            <a href="#0"><img src="./images/Facebook_circled.svg" alt="Facebook Logo, in black/white"></a>
+            <a href="#0"><img src="./images/twitter_circled.svg" alt="Twitter Logo, in black/white"></a>
           </div>
         </div>
       </div>

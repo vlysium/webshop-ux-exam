@@ -12,22 +12,22 @@
   <body>
     <main>
       <h1>Sign up to your account</h1>
-      <span id="password_match_issue" class="hidden">Password most match</span>
-      <span id="email_exist_issue" class="hidden">User Already Exist</span>
-      <form action="" onsubmit="return false">
-        <label for="signup_email" name="signup_email" type="email">E-mail</label>
-        <input type="email" name="signup_email" id="signup_email" required>
-        <label for="signup_password" name="signup_password" type="password">Password</label>
-        <input type="password" name="signup_password" id="signup_password" required>
+      <span id="password-match-issue" class="hidden">Password most match</span>
+      <span id="email-exist-issue" class="hidden">User Already Exist</span>
+      <form>
+        <label for="signup-email" name="signup_email" type="email">E-mail</label>
+        <input type="email" name="signup_email" id="signup-email" required>
+        <label for="signup-password" name="signup_password" type="password">Password</label>
+        <input type="password" name="signup_password" id="signup-password" required>
         <div id="requirements">
-          <p>Password must be between 8 to 20 characters</p>
-          <p>Contain atleast one lowercase and uppercase letter</p>
-          <p>Containt atleast one number and special character</p>
+          <p class="invalid" id="length">Password must be between 8 to 20 characters</p>
+          <p class="invalid">Contain atleast one lowercase and uppercase letter</p>
+          <p class="invalid">Containt atleast one number and special character</p>
         </div>
-        <label for="signup_repeat_password" name="signup_repeat_password" type="password"
-          id="label_repeat_password">Repeat Password</label>
-        <input type="password" id="signup_repeat_password" name="signup_repeat_password" required>
-        <button id="formSubmitSignup">Sign up</button>
+        <label for="signup-repeat-password" name="signup_repeat_password" type="password"
+          id="label-repeat-password">Repeat Password</label>
+        <input type="password" id="signup-repeat-password" name="signup_repeat_password" required>
+        <button id="form-submit-signup">Sign up</button>
         <p class="center">Aready have an account? <a href="index.html">Login now</a></p>
       </form>
     </main>

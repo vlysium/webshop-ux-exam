@@ -1,9 +1,9 @@
 
 
 /* Check If Password Matches */
-export function matchPassword(signup_password, signup_repeat_password, profiles) {
+export function matchPassword(signupPassword, signupRepeatPassword, profiles) {
   // Sammenligner brugers input af deres password, for at se om de matcher
-  if (signup_password !== signup_repeat_password) {
+  if (signupPassword !== signupRepeatPassword) {
 
     invalidPassword(true, "Both Password Most Match")
     return false
@@ -41,8 +41,8 @@ export function checkExistingUserMail(signup_email, profiles) {
     return false
   }
   // hvis den nye e-mail er unik. 
-  document.querySelector("#email_exist_issue").classList.add("hidden")
-  document.querySelector("#signup_email").classList.remove("inputBorder")
+  document.querySelector("#email-exist-issue").classList.add("hidden")
+  document.querySelector("#signup-email").classList.remove("input-border")
   return true
 
 }
@@ -50,26 +50,27 @@ export function checkExistingUserMail(signup_email, profiles) {
 
 export function invalidPassword(state, message) {
   if (state) {
-    document.querySelector("#password_match_issue").classList.remove("hidden")
-    document.querySelector("#password_match_issue").textContent = message
-    document.querySelector("#signup_password").classList.add("inputBorder")
-    document.querySelector("#signup_repeat_password").classList.add("inputBorder")
+    document.querySelector("#password-match-issue").classList.remove("hidden")
+    document.querySelector("#password-match-issue").textContent = message
+    document.querySelector("#signup-password").classList.add("input-border")
+    document.querySelector("#signup-repeat-password").classList.add("input-border")
   } else {
-    document.querySelector("#password_match_issue").classList.add("hidden")
-    document.querySelector("#signup_password").classList.remove("inputBorder")
-    document.querySelector("#signup_repeat_password").classList.remove("inputBorder")
+    document.querySelector("#password-match-issue").classList.add("hidden")
+    document.querySelector("#signup-password").classList.remove("input-border")
+    document.querySelector("#signup-repeat-password").classList.remove("input-border")
   }
 }
 
 
 export function invalidEmail(state, message) {
   if (state) {
-    document.querySelector("#email_exist_issue").classList.remove("hidden")
-    document.querySelector("#email_exist_issue").textContent = message
+    document.querySelector("#email-exist-issue").classList.remove("hidden")
+    document.querySelector("#email-exist-issue").textContent = message
     // vi gir input feltet for email noget styling
-    document.querySelector("#signup_email").classList.add("inputBorder")
+    document.querySelector("#signup-email").classList.add("input-border")
   } else {
-    document.querySelector("#email_exist_issue").classList.add("hidden")
-    document.querySelector("#signup_email").classList.remove("inputBorder")
+    document.querySelector("#email-exist-issue").classList.add("hidden")
+    document.querySelector("#signup-email").classList.remove("input-border")
   }
 }
+

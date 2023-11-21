@@ -15,7 +15,7 @@ p {
   color: var(--color-primary);
 }
 
-#formSubmitLogin {
+#form-submit-login {
   background-color: var(--color-primary);
   text-align: center;
   text-decoration: none;
@@ -24,14 +24,13 @@ p {
   width: 100%;
   color: var(--color-white);
   border-radius: var(--p2);
-  ;
   font-size: var(--text-large);
   transition: all 0.15s ease;
   cursor: pointer;
 }
 
 
-#formSubmitLogin:hover {
+#form-submit-login:hover {
   background-color: var(--color-primary-darker);
   text-align: center;
   text-decoration: none;
@@ -105,6 +104,11 @@ h1 {
 
 .hide {
   display: none;
+}
+
+.no-button-style {
+  background: none;
+  border: none;
 }
 
 @media only screen and (max-width: 800px) {

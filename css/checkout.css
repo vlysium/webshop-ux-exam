@@ -15,8 +15,6 @@ main {
   gap: var(--p8);
 }
 
-footer {}
-
 form {
   background-color: var(--color-white);
   padding: var(--p8);
@@ -316,6 +314,9 @@ input {
   display: none;
 }
 
+.nextBtnAllow{
+  background-color: var(--color-primary);
+}
 .slideToLeft {
   transform: translateX(-100%);
 
@@ -329,4 +330,71 @@ input {
 .slideToRight {
   transform: translateX(100%);
 
+}
+
+label{
+  position: relative;
+}
+
+
+/* VALIDATION POPUP */
+#input-popup-container{
+  position: absolute;
+  top: 115%;
+  left: 20%;
+  z-index: 100;
+  pointer-events: none;
+  width: 100%;
+}
+.input-popup{
+        position: relative; /* This is important to position the arrow correctly */
+    background-color: #ffffff; /* light red background */
+    border: 1px solid #000000; /* red border */
+    padding: 5px 10px; /* Some padding around the text */
+    border-radius: 5px; 
+    width: fit-content;
+    display: flex;
+    gap: 0.25rem;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+/* .input-popup::after {
+    content: '';
+    position: absolute;
+    bottom: 100%; 
+    left: 20px; 
+    border-width: 10px; 
+     border-style: solid;
+    border-color: transparent transparent #000000 transparent; 
+    
+}
+.input-popup::before {
+    content: '';
+    position: absolute;
+    bottom: 100%; 
+    left: 20px; 
+    border-width: 10px; 
+      border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
+    
+} */
+
+.popup-arrow{
+      position: absolute;
+    /* width: 30px; */
+    border: black solid 1px;
+    top: -7px;
+    left: 10%;
+    /* width: 100%; */
+    border: solid #454545;
+    border-width: 0px 1px 1px 0;
+    display: inline-block;
+    padding: 6px;
+    transform: rotate(225deg);
+}
+.popup-svg{
+  stroke: white;
+    background: orange;
+    width: 25px;
+    height: 25px;
 }

@@ -1,4 +1,5 @@
-#navMenu {
+#nav-menu {
+  background-color: var(--color-grey);
   position: sticky;
   top: 0;
   z-index: 1;
@@ -7,12 +8,12 @@
   transition: 0.1s ease-in-out;
 }
 
-.navScroll {
+.nav-scroll {
   background-color: var(--color-white);
   box-shadow: 0px 8px 24px 0px var(--color-card-drop-shadow);
 }
 
-#navContainer {
+#nav-container {
   max-width: 1440px;
   margin-inline: auto;
   display: grid;
@@ -22,16 +23,16 @@
   padding-block: var(--p2);
 }
 
-#navContainer a {
+#nav-container a {
   width: max-content;
   line-height: 0;
 }
 
-#navContainer>p {
+#nav-container>p {
   text-align: center;
 }
 
-#menuDiv {
+#menu-div {
   display: flex;
   align-items: flex-start;
   gap: 2rem;
@@ -39,9 +40,21 @@
 }
 
 #show-basket {
+  position: relative;
   border: none;
   background-color: transparent;
   line-height: 0;
+}
+
+#show-basket.notification::after {
+  content: "";
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 100%;
+  background-color: var(--color-basket-notification);
+  position: absolute;
+  right: -10%;
+  top: -10%;
 }
 
 #user-name {
@@ -59,18 +72,6 @@
   transition: all 0.15s ease;
   cursor: pointer;
   line-height: 0;
-  /*   background-color: var(--color-grey);
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    padding:  2% 10%;
-    width: 100%;
-    color: var(--color-primary);
-    border-radius: 0.5rem;
-    font-size: var(--text-base);
-    transition: all 0.15s ease;
-    cursor: pointer; 
-    box-shadow: 0px 8px 24px 0px var(--color-card-drop-shadow); */
 }
 
 /* #logout:hover {
@@ -80,7 +81,7 @@
 } */
 
 @media (max-width: 768px) {
-  #navContainer {
+  #nav-container {
     padding-inline: var(--p4);
   }
 }
