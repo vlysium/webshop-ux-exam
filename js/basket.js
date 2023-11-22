@@ -18,8 +18,6 @@ function productExistsInBasket(product) {
 
 // add product to basket
 function addToBasket(product) {
-  //console.log(`Added ${product.title} to basket`)
-
   const productObj = {
     id: product.id,
     title: product.title,
@@ -42,8 +40,6 @@ function addToBasket(product) {
   if (userBasket.length > 0) {
     document.querySelector("#show-basket").classList.add("notification");
   }
-
-  //console.log("userBasket:", userBasket)
 }
 
 function viewBasket() {
@@ -70,8 +66,6 @@ function viewBasket() {
   basketModal.querySelector(".close-modal").addEventListener("click", () => basketModal.close());
 
   basketModal.showModal();
-
-  //console.log(userBasket);
 }
 
 export { addToBasket, viewBasket };

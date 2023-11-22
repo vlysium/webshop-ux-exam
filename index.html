@@ -4,8 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/index.css" />
-    <script type="module" src="./js/account.js" defer></script>
+    <link rel="stylesheet" href="css/index.css" />
+    <script type="module" src="js/account.js" defer></script>
     <title>Webshop | Login</title>
   </head>
 
@@ -15,7 +15,7 @@
       <h2></h2>
       <!-- Login Form -->
       <form>
-
+        <p id="login-error-message" class="hide opacity">Wrong email or password, try again.</p>
         <label for="login-email">
           Email
         </label>
@@ -25,7 +25,6 @@
           <label for="login-password">
             Password
           </label>      
-          <a href="#" aria-label="forgotten password link">Forgot Password?</a>
           <div>
             <input id="login-password" name="login_password" type="password" required>
             <!-- "view password" icon-->

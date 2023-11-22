@@ -7,7 +7,7 @@ const allProducts = [];
 
 const user = JSON.parse(sessionStorage.getItem("user"));
 if (!user) { // 🧙‍♂️ YOU SHALL NOT PASS - without being logged in first
-  // window.location = "index.html";
+  window.location = "index.html";
 }
 document.querySelector("#user-name").textContent = user?.email;
 
@@ -18,9 +18,13 @@ if (userBasket.length > 0) {
 
 // fetch data from fakestoreapi
 async function getProducts() {
-  const response = await fetch(url);
-  const allProductsJSON = await response.json();
-  allProducts.push(...allProductsJSON);
+  const response = await fetch(url, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" }
+  });
+
+  const data = await response.json();
+  allProducts.push(...data);
 
   //console.log(allProducts);
 
@@ -28,7 +32,7 @@ async function getProducts() {
   registerFilterBtns()
 }
 
-// 
+// truncate text and append (...) at the end if the length of the text exceeds a given max character length
 function truncateText(string, maxCharLength) {
   if (string.length > maxCharLength) {
     return string.substring(0, maxCharLength) + "...";
@@ -42,18 +46,28 @@ function displayAllProducts(products) {
   productContainer.innerHTML = ""; // clear all child nodes
 
   // For each product put in title, image and price from the API
-  products.forEach((product) => {
+  products.forEach((product, index) => {
     const productTemplate = document.querySelector("#product-template").content.cloneNode(true);
 
+    productTemplate.querySelector("article").setAttribute("tabindex", (9 + index));
     productTemplate.querySelector(".product-img").src = product.image;
     productTemplate.querySelector(".product-img").alt = product.title;
     productTemplate.querySelector(".product-title").textContent = truncateText(product.title, 60);
     productTemplate.querySelector(".product-price").textContent = "$" + product.price;
 
     productTemplate.querySelector("article").addEventListener("click", () => viewSingleProduct(product));
+    
+    productTemplate.querySelector("article").addEventListener("keydown", (event) => {
+      if(event.code === "Enter"){
+        //console.log(event);
+        event.target.click()
+        viewSingleProduct(product);
+      }
+    });
 
     productContainer.appendChild(productTemplate);
   });
+  //productSelection(products) 
 }
 
 // show product modal on click
@@ -73,7 +87,7 @@ function viewSingleProduct(product) {
   productModalClone.querySelector(".product-rating").textContent = "Rating: " + product.rating.rate + " / 5";
   productModalClone.querySelector(".product-count").textContent = "Reviewed by " + product.rating.count + " customers";
 
-
+  // change the text briefly after the user clicks
   productModalClone.querySelector(".product-add-to-cart").addEventListener("click", () => {
     addToBasket(product);
     productModalClone.querySelector(".product-add-to-cart").textContent = "Added to cart";
@@ -81,6 +95,7 @@ function viewSingleProduct(product) {
       productModalClone.querySelector(".product-add-to-cart").textContent = "Add to cart";
     }, 1500);
   });
+
   // close() built in function for dialog html tag
   productModalClone.querySelector(".close-modal").addEventListener("click", () => productModalClone.close());
 
@@ -88,6 +103,7 @@ function viewSingleProduct(product) {
 
   // showModal() built in function for dialog html tag
   productModalClone.showModal();
+  //console.log(productModalClone);
 }
 
 window.location.pathname.includes("shop.html") && getProducts(); // invoke getProducts if the user is in shop.html
@@ -125,3 +141,45 @@ window.addEventListener('scroll', () => {
     navbar.classList.remove("nav-scroll");
   }
 });
+
+// accessibility
+
+// Radio button selection
+const labels = document.querySelectorAll(".side-nav label")
+
+function radiobuttons () {
+
+  labels.forEach(radio =>{
+    radio.addEventListener("keydown", (event) => {
+      if(event.code =="Enter"){
+        radio.click();
+        radio.focus()
+  
+      }
+    })
+  })
+
+
+}
+radiobuttons ()
+
+// Product selection
+
+function productSelection (product) {
+  const tabProducts = document.querySelectorAll(".single-product")
+  
+  //console.log(tabProducts)
+  tabProducts.forEach((item,index) =>{
+    item.addEventListener("keydown", (event) => {
+      if(event.code =="Enter"){
+        //console.log("hello")
+        //item.click();
+        viewSingleProduct(product[index]);
+        
+      }
+    })
+  })
+
+}
+
+

@@ -24,6 +24,41 @@
       "email": "p@p.com",
       "password": "1",
       "id": 6
+    },
+    {
+      "email": "hello@hello.com",
+      "password": "!Q2w3e4r",
+      "id": 7
+    },
+    {
+      "email": "mille@aaa.com",
+      "password": "Aad34hvp!",
+      "id": 8
+    },
+    {
+      "email": "asger@mail.com",
+      "password": "Abc1234!",
+      "id": 9
+    },
+    {
+      "email": "abc@abc.abc",
+      "password": "!Q2w3e4r",
+      "id": 10
+    },
+    {
+      "email": "q@q.com",
+      "password": "!Q2w3e4r",
+      "id": 11
+    },
+    {
+      "email": "aaaaaaaaaa@aa.com",
+      "password": "12345678",
+      "id": 12
+    },
+    {
+      "email": "qwe@qwe.cpm",
+      "password": "Aa1234561!",
+      "id": 13
     }
   ]
 }

@@ -12,8 +12,20 @@ export function matchPassword(signupPassword, signupRepeatPassword, profiles) {
   return true
 }
 
-export function validatePassword(userInput) {
+/* export function validatePassword(userInput) {
   return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,20}$/.test(userInput);
+}
+ */
+export function validatePasswordLowerUpperCase(userInput){
+  return /^(?=.*[a-z])(?=.*[A-Z]).*$/.test(userInput)
+}
+
+export function validatePasswordSpecialNumber(userInput){
+  return  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}":;'?/<>,.]).*$/.test(userInput);
+}
+
+export function validatePasswordLength(userInput){
+  return  /^.{8,20}/.test(userInput);
 }
 
 export function validateEmail(userInput) {
@@ -30,7 +42,7 @@ export function checkExistingUserMail(signup_email, profiles) {
   profiles.forEach((profile, i) => {
     // For hver profil sammeligner vi den nye email med de nuværende bruges email
     if (signup_email === profile.email) {
-      console.log(signup_email)
+      //console.log(signup_email)
       invalidEmail(true, "User Email Already Exist")
       mailCheck = true
       return

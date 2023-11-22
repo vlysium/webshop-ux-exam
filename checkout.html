@@ -4,11 +4,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/checkout.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
     <script type="module" src="js/checkoutAnimations.js" defer></script>
     <script type="module" src="js/checkout.js" defer></script>
-    <script type="module" src="./js/app.js" defer></script>
-    <script type="module" src="./js/logout.js" defer></script>
+    <script type="module" src="js/app.js" defer></script>
+    <script type="module" src="js/logout.js" defer></script>
     <title>Webshop | Check out</title>
   </head>
 
@@ -17,12 +17,12 @@
       <nav>
         <div id="nav-container">
           <a href="shop.html">
-            <img src="./images/logo.svg" alt="logo">
+            <img src="images/logo3.svg" alt="webshop logo">
           </a>
           <p>Welcome <span id="user-name"></span></p>
           <div id="menu-div">
             <button id="logout">
-              <img src="./images/logout.svg" alt="logout">
+              <img src="images/logout.svg" alt="logout">
             </button>
           </div>
         </div>
@@ -32,96 +32,96 @@
       <form action="" onsubmit="return false">
 
         <h1>Contact Information</h1>
-        <fieldset id="shippingAddress">
-          <label for="contactEmail">E-mail
-            <input type="email" name="contactEmail" id="contactEmail" required>
+        <fieldset id="shipping-address-field">
+          <label for="contact-email">E-mail
+            <input type="email" name="contact_email" id="contact-email" tabindex="-1" required>
           </label>
           <h4>Shipping Address</h4>
           <!-- First & Last Name -->
-          <div class="countryDiv">
-            <label for="firstName">First Name
-              <input type="text" name="firstName" id="firstName" required>
+          <div class="country-div">
+            <label for="first-name">First Name
+              <input type="text" name="first_name" id="first-name" tabindex="-1" required>
             </label>
-            <label for="lastName">Last Name
-              <input type="text" name="lastName" id="lastName" required>
+            <label for="last-name">Last Name
+              <input type="text" name="last_name" id="last-name" tabindex="-1" required>
             </label>
           </div>
           <!-- Address -->
-          <label for="shipAddress">Address
-            <input type="text" name="shipAddress" id="shipAddress" required>
+          <label for="shipping-address">Address
+            <input type="text" name="shipping_address" id="shipping-address" tabindex="-1" required>
           </label>
           <!-- Country Zip Code -->
-          <div class="countryDiv">
-            <label for="shipCountry">Country
-              <input type="text" name="shipCountry" id="shipCountry" required>
+          <div class="country-div">
+            <label for="shipping-country">Country
+              <input type="text" name="shipping_country" id="shipping-country" tabindex="-1" required>
             </label>
-            <label for="shipZipCode">Zip Code
-              <input type="text" name="shipZipCode" id="shipZipCode" required>
+            <label for="shipping-zip-code">Zip Code
+              <input type="number" name="shipping_zip_code" id="shipping-zip-code" tabindex="-1" required>
             </label>
           </div>
           <!-- Phone Number -->
-          <label for="shipPhone">Phone Number
-            <input type="number" name="shipPhone" id="shipPhone" required>
+          <label for="shipping-phone">Phone Number
+            <input type="number" name="shipping_phone" id="shipping-phone" tabindex="-1" required>
           </label>
         </fieldset>
 
-        <fieldset id="billingAddress" class="slideToRight">
+        <fieldset id="billing-address-field" class="slide-to-right">
           <h4>Billing Information</h4>
           <!-- Address -->
-          <label for="billAddress">Address
-            <input type="text" name="billAddress" id="billAddress" required>
+          <label for="billing-address">Address
+            <input type="text" name="billing_address" id="billing-address" tabindex="-1" required>
           </label>
           <!-- Country Zip Code -->
-          <div class="countryDiv">
-            <label for="billCountry">Country
-              <input type="text" name="billCountry" id="billCountry" required>
+          <div class="country-div">
+            <label for="billing-country">Country
+              <input type="text" name="billing_country" id="billing-country" tabindex="-1" required>
             </label>
-            <label for="billZipCode">Zip Code
-              <input type="text" name="billZipCode" id="billZipCode" required>
+            <label for="billing-zip-code">Zip Code
+              <input type="number" name="billing_zip_code" id="billing-zip-code" tabindex="-1" required>
             </label>
           </div>
           <!-- Phone Number -->
-          <label for="billPhone">Phone Number
+          <label for="billing-phone">Phone Number
 
-            <input type="text" name="billPhone" id="billPhone" required>
+            <input type="number" name="billing_phone" id="billing-phone" tabindex="-1" required>
           </label>
         </fieldset>
-        <fieldset id="creditCard" class="slideToRight">
+        <fieldset id="credit-card-field" class="slide-to-right">
           <h4>Credit Card Information</h4>
           <!-- Credit Card -->
-          <label for="cardName">
+          <label for="card-name">
             Cardholder Name
-            <input type="text" name="cardName" id="cardName" required>
+            <input type="text" name="card_name" id="card-name" tabindex="-1" required>
           </label>
-          <label for="cardNumber">
+          <label for="card-number">
             Card Number
-            <input type="text" pattern="/^-?\d+\.?\d*$/" name="cardNumber" id="cardNumber" minlength="1" maxlength="16" required>
+            <input type="text" name="card_number" id="card-number" minlength="1" maxlength="16" tabindex="-1" required>
           </label>
-          <div class="countryDiv">
-            <label for="cardExpiretion">
+          <div class="country-div">
+            <label for="card-expiration">
               Expiretion
-              <input type="text" name="cardExpiretion" id="cardExpiretion" required>
+              <input type="datetime" name="card_expiration" id="card-expiration" tabindex="-1" required minlength="1" maxlength="5">
             </label>
-            <label for="cardCCV">
+            <label for="card-ccv">
               CCV/CVC
-              <input type="number" name="cardCCV" id="cardCCV" required>
+              <input type="number" name="card_ccv" id="card-ccv" tabindex="-1" required minlength="1" maxlength="3" >
             </label>
           </div>
         </fieldset>
-        <div id="submitDiv" class="countryDiv">
-          <div id="indictor">
-            <div id="indictor0" class="indictor selectedIndictor"></div>
-            <div id="indictor1" class="indictor"></div>
-            <div id="indictor2" class="indictor"></div>
+        <div id="submit-div" class="country-div">
+          <div id="indicator">
+            <div id="indicator-0" class="indicator selected-indicator"></div>
+            <div id="indicator-1" class="indicator"></div>
+            <div id="indicator-2" class="indicator"></div>
           </div>
-          <button type="button" id="pre" class="hide">Previous</button>
+          <button type="button" id="previous" class="hide">Previous</button>
           <button type="button" id="next" >Next</button>
-          <a id="conShopping" href="shop.html"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          <a id="continue-shopping" href="shop.html"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
             </svg>
             Continue Shopping</a>
-          <button id="subFormBtn" class="hide">Submit</button>
+          <button id="submit-form-btn" class="hide">Submit</button>
         </div>
       </form>
 
@@ -138,7 +138,7 @@
 
         </article>
       </template>
-      <section id="productContainer">
+      <section id="product-container">
 
       </section>
     </main>
@@ -149,8 +149,8 @@
           <p>Guldbergsgade 29N,</p>
           <p>2200 Copenhagen</p>
           <p>Denmark</p>
-          <a href="tel:+4512345678"><img src="./images/phone.svg"> (+45) 12 34 56 78</a>
-          <a href="mailto:info@company.com"><img src="./images/Email.svg"> info@company.com</a>
+          <a href="tel:+4512345678"><img src="images/phone.svg"> (+45) 12 34 56 78</a>
+          <a href="mailto:info@company.com"><img src="images/Email.svg"> info@company.com</a>
         </address>
         <div id="div-links-one">
           <a href="#0">About us</a>
@@ -161,9 +161,9 @@
           <a href="#0">Terms & Conditions</a>
           <a href="#0">Privacy Policy</a>
           <div>
-            <a href="#0"><img src="./images/instagram_circle.svg" alt="Instagram Logo, in black/white"></a>
-            <a href="#0"><img src="./images/Facebook_circled.svg" alt="Facebook Logo, in black/white"></a>
-            <a href="#0"><img src="./images/twitter_circled.svg" alt="Twitter Logo, in black/white"></a>
+            <a href="#0"><img src="images/instagram_circle.svg" alt="Instagram Logo, in black/white"></a>
+            <a href="#0"><img src="images/Facebook_circled.svg" alt="Facebook Logo, in black/white"></a>
+            <a href="#0"><img src="images/twitter_circled.svg" alt="Twitter Logo, in black/white"></a>
           </div>
         </div>
       </div>

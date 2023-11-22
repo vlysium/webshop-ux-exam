@@ -4,8 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/signup.css" />
-    <script type="module" src="./js/account.js" defer></script>
+    <link rel="stylesheet" href="css/signup.css" />
+    <script type="module" src="js/account.js" defer></script>
     <title>Webshop | Sign up</title>
   </head>
 
@@ -13,24 +13,24 @@
     <main>
       <h1>Sign up to your account</h1>
       <span id="password-match-issue" class="hidden">Password most match</span>
-      <span id="email-exist-issue" class="hidden">User Already Exist</span>
+      <span id="email-exist-issue" class="hidden">User already exist</span>
       <form>
+        <!-- E-mail -->
         <label for="signup-email" name="signup_email" type="email">E-mail</label>
         <input type="email" name="signup_email" id="signup-email" required>
+        <!-- Password -->
         <label for="signup-password" name="signup_password" type="password">Password</label>
-        <input type="password" name="signup_password" id="signup-password" required>
-        <div id="requirements">
-          <p class="invalid" id="length">Password must be between 8 to 20 characters</p>
-          <p class="invalid">Contain atleast one lowercase and uppercase letter</p>
-          <p class="invalid">Containt atleast one number and special character</p>
-        </div>
+        <input type="password" name="signup_password" id="signup-password" minlength="8" maxlength="20" required>
+        <!-- Repeat password -->
         <label for="signup-repeat-password" name="signup_repeat_password" type="password"
           id="label-repeat-password">Repeat Password</label>
-        <input type="password" id="signup-repeat-password" name="signup_repeat_password" required>
-        <button id="form-submit-signup">Sign up</button>
+        <input type="password" id="signup-repeat-password" name="signup_repeat_password" minlength="8" maxlength="20" required>
+        <!-- Sign up button -->
+        <button id="form-submit-signup" aria-label="Sign up button">Sign up</button>
         <p class="center">Aready have an account? <a href="index.html">Login now</a></p>
       </form>
     </main>
+    <!-- Background circle -->
     <div class="circle"></div>
   </body>
 

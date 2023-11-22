@@ -9,9 +9,7 @@ function calculateTotalPrice(products) {
   const finalTotalPrice = products.reduce((accumulatedTotalPrice, product) => {
     return accumulatedTotalPrice + (product.price * product.quantity);
   }, initialTotalPrice);
-
-  //console.log(finalTotalPrice);
-
+  
   return finalTotalPrice.toFixed(2);
 }
 

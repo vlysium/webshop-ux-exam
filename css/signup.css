@@ -1,4 +1,4 @@
-@import url("./global.css");
+@import url("global.css");
 
 body {
   display: flex;
@@ -12,7 +12,7 @@ body {
 }
 
 .input-border {
-  border: solid 1px red;
+  border: solid var(--space-px) var(--color-error-msg);
 }
 
 a {
@@ -30,10 +30,10 @@ p {
   text-align: center;
   text-decoration: none;
   border: none;
-  padding: var(--p2);
+  padding: var(--space-2);
   width: 100%;
   color: var(--color-white);
-  border-radius: var(--p2);
+  border-radius: var(--space-2);
   ;
   font-size: var(--text-large);
   transition: all 0.15s ease;
@@ -46,10 +46,10 @@ p {
   text-align: center;
   text-decoration: none;
   border: none;
-  padding: var(--p2);
+  padding: var(--space-2);
   width: 100%;
   color: var(--color-white);
-  border-radius: var(--p2);
+  border-radius: var(--space-2);
   font-size: var(--text-large);
 }
 
@@ -60,21 +60,16 @@ label {
 }
 
 input {
-  border: 0.1em var(--color-input-border) solid;
-  border-radius: var(--p2);
-  padding: var(--p2);
+  border: var(--space-px) var(--color-input-border) solid;
+  border-radius: var(--space-2);
+  padding: var(--space-2);
   width: 100%;
-  margin-bottom: var(--p8);
+  margin-bottom: var(--space-8);
 }
 
 #signup-password {
-  margin-bottom: 0%;
+  margin-bottom: var(--space-8);
 }
-
-#requirements {
-  margin-bottom: var(--p8);
-}
-
 
 main {
   max-width: 600px;
@@ -82,10 +77,9 @@ main {
   flex-direction: column;
   margin: 0 auto;
   background-color: var(--color-white);
-  padding: var(--p16);
-  border-radius: var(--p4);
-  /* margin-top: var(--p20); */
-  filter: drop-shadow(0 0 0.75rem var(--color-dark-low-opacity));
+  padding: var(--space-16);
+  border-radius: var(--space-4);
+  filter: drop-shadow(0 0 var(--space-3) var(--color-dark-low-opacity));
 }
 
 
@@ -113,13 +107,13 @@ body {
 }
 
 h1 {
-  margin-bottom: var(--p12);
+  margin-bottom: var(--space-12);
   font-size: var(--text-4xlarge);
 }
 
 .center {
   text-align: center;
-  padding: var(--p6);
+  padding: var(--space-6);
 }
 
 .invalid{
@@ -127,7 +121,7 @@ h1 {
 }
 
 .valid{
-  color: green;
+  color: var(--color-valid);
 }
 
 @media only screen and (max-width: 800px) {
@@ -137,9 +131,8 @@ h1 {
     flex-direction: column;
     margin: 0 auto;
     background-color: var(--color-white);
-    padding: var(--p12);
-    border-radius: 1rem;
-    /* margin-top: var(--p16); */
+    padding: var(--space-12);
+    border-radius: var(--space-4);
     filter: drop-shadow(0 0 0.75rem var(--color-dark-low-opacity));
   }
 

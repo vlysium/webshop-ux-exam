@@ -4,9 +4,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/shop.css" />
-    <script type="module" src="./js/app.js"></script>
-    <script type="module" src="./js/logout.js"></script>
+    <link rel="stylesheet" href="css/shop.css" />
+    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/logout.js"></script>
     <title>Webshop | Shop</title>
   </head>
 
@@ -15,15 +15,15 @@
       <nav>
         <div id="nav-container">
           <a href="shop.html">
-            <img src="./images/logo.svg" alt="logo">
+            <img src="images/logo3.svg" alt="webshop logo">
           </a>
           <p>Welcome <span id="user-name"></span></p>
           <div id="menu-div">
             <button id="show-basket" tabindex="1">
-              <img src="./images/basket.svg" alt="basket">
+              <img src="images/basket.svg" alt="basket">
             </button>
             <button id="logout" tabindex="2">
-              <img src="./images/logout.svg" alt="logout">
+              <img src="images/logout.svg" alt="logout">
             </button>
           </div>
         </div>
@@ -34,14 +34,8 @@
         <div class="splash-cta">
           <div class="splash-cta-container">
             <h1>SAVE UP TO 40% ON YOUR FIRST ORDER</h1>
-            <h2>Use promocode: NEWCUSTOMER</h2>
-            <button tabindex="3">Shop now
-              <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-              </svg> -->
-
-            </button>
+            <h2>Use promocode: <span>NEWCUSTOMER</span></h2>
+            <button tabindex="3" aria-label="Shop now button">Shop now</button>
           </div>
         </div>
         <div class="splash-image-container">
@@ -53,23 +47,23 @@
           <ul class="side-nav">
             <li>
               <input type="radio" name="filter" id="filter-all" value="all" checked/>
-              <label for="filter-all" tabindex="3">All categories</label>
+              <label role="radio" tabindex="4" for="filter-all" aria-label="Filter all categories">All categories</label>
             </li>
             <li>
               <input type="radio" name="filter" id="filter-womens-clothing" value="women's clothing"/>
-              <label for="filter-womens-clothing" tabindex="4">Womens clothing</label>
+              <label role="radio" tabindex="5" for="filter-womens-clothing" aria-label="Filter only womens clothing">Womens clothing</label>
             </li>
             <li>
-              <input type="radio" name="filter" id="filter-mens-clothing" value="men's clothing" />
-              <label for="filter-mens-clothing" tabindex="5">Mens clothing</label>
+              <input type="radio" name="filter" id="filter-mens-clothing" value="men's clothing"/>
+              <label role="radio" tabindex="6" for="filter-mens-clothing" aria-label="Filter only mens clothing">Mens clothing</label>
             </li>
             <li>
-              <input type="radio" name="filter" id="filter-jewelery" value="jewelery" />
-              <label for="filter-jewelery" tabindex="6">Jewelry</label>
+              <input type="radio" name="filter" id="filter-jewelery" value="jewelery"/>
+              <label role="radio" tabindex="7" for="filter-jewelery" aria-label="Filter only jewelry">Jewelry</label>
             </li>
             <li>
-              <input type="radio" name="filter" id="filter-electronics" value="electronics" />
-              <label for="filter-electronics" tabindex="7">Electronics</label>
+              <input type="radio" name="filter" id="filter-electronics" value="electronics"/>
+              <label role="radio" tabindex="8" for="filter-electronics" aria-label="Filter only electronics">Electronics</label>
             </li>
           </ul>
         </aside>
@@ -77,7 +71,7 @@
         <div>
           <template id="product-template">
             <li>
-              <article class="single-product">
+              <article class="single-product" tabindex="9" role="button">
                 <img src="" alt="" class="product-img" loading="lazy">
                 <div class="text-container">
                   <h4 class="product-title"></h4>
@@ -98,7 +92,7 @@
           <div>
             <h3 class="product-title"></h3>
             <p class="product-price"></p>
-            <button class="product-add-to-cart">Add to cart</button>
+            <button class="product-add-to-cart" aria-label="Add product to card">Add to cart</button>
             <p class="product-description"></p>
           </div>
           <div class="rating-container">
@@ -138,8 +132,8 @@
           <p>Guldbergsgade 29N,</p>
           <p>2200 Copenhagen</p>
           <p>Denmark</p>
-          <a href="tel:+4512345678"><img src="./images/phone.svg"> (+45) 12 34 56 78</a>
-          <a href="mailto:info@company.com"><img src="./images/Email.svg"> info@company.com</a>
+          <a href="tel:+4512345678"><img src="images/phone.svg"> (+45) 12 34 56 78</a>
+          <a href="mailto:info@company.com"><img src="images/Email.svg"> info@company.com</a>
         </address>
         <div id="div-links-one">
           <a href="#0">About us</a>
@@ -150,9 +144,9 @@
           <a href="#0">Terms & Conditions</a>
           <a href="#0">Privacy Policy</a>
           <div>
-            <a href="#0"><img src="./images/instagram_circle.svg" alt="Instagram Logo, in black/white"></a>
-            <a href="#0"><img src="./images/Facebook_circled.svg" alt="Facebook Logo, in black/white"></a>
-            <a href="#0"><img src="./images/twitter_circled.svg" alt="Twitter Logo, in black/white"></a>
+            <a href="#0"><img src="images/instagram_circle.svg" alt="Instagram Logo, in black/white"></a>
+            <a href="#0"><img src="images/Facebook_circled.svg" alt="Facebook Logo, in black/white"></a>
+            <a href="#0"><img src="images/twitter_circled.svg" alt="Twitter Logo, in black/white"></a>
           </div>
         </div>
       </div>

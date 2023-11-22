@@ -1,12 +1,11 @@
 import {valiContactInfo, valiBilling, validateCreditcard} from "./checkout.js"
 
 document.getElementById("next").addEventListener("click", nextSlide)
-document.getElementById("pre").addEventListener("click", preSlide)
+document.getElementById("previous").addEventListener("click", preSlide)
 
 let currentSlide = 0
 
 function nextSlide() {
-  console.log(document.querySelector("#contactEmail").reportValidity())
   if(!valiContactInfo()){
     return
   }
@@ -16,37 +15,39 @@ function nextSlide() {
   } 
 
   if (currentSlide === 0) {
-    console.log(currentSlide, "currentslide")
     /* From Fieldset */
-    document.getElementById("shippingAddress").classList.remove("slideToCenter")
-    document.getElementById("shippingAddress").classList.add("slideToLeft")
-    document.getElementById("billingAddress").classList.remove("slideToRight")
-    document.getElementById("billingAddress").classList.add("slideToCenter")
+    document.getElementById("shipping-address-field").classList.remove("slide-to-center")
+    document.getElementById("shipping-address-field").classList.add("slide-to-left")
+    document.getElementById("billing-address-field").classList.remove("slide-to-right")
+    document.getElementById("billing-address-field").classList.add("slide-to-center")
     /* Buttons */
-    btnAppear("pre")
-    //document.getElementById("pre").classList.remove("hide")
+    btnAppear("previous")
+    //document.getElementById("previous").classList.remove("hide")
     /* Indicator */
-    document.getElementById("indictor0").classList.remove("selectedIndictor")
-    document.getElementById("indictor1").classList.add("selectedIndictor")
+    document.getElementById("indicator-0").classList.remove("selected-indicator")
+    document.getElementById("indicator-1").classList.add("selected-indicator")
     /* Opdate current slide */
     currentSlide = 1
+    tabindex ()
+
     return
   }
   if (currentSlide === 1) {
-      console.log(currentSlide, "currentslide")
     /* From Fieldset */
-    document.getElementById("billingAddress").classList.remove("slideToCenter")
-    document.getElementById("billingAddress").classList.add("slideToLeft")
-    document.getElementById("creditCard").classList.remove("slideToRight")
-    document.getElementById("creditCard").classList.add("slideToCenter")
+    document.getElementById("billing-address-field").classList.remove("slide-to-center")
+    document.getElementById("billing-address-field").classList.add("slide-to-left")
+    document.getElementById("credit-card-field").classList.remove("slide-to-right")
+    document.getElementById("credit-card-field").classList.add("slide-to-center")
     /* Buttons */
     document.getElementById("next").classList.add("hide")
-    document.getElementById("subFormBtn").classList.remove("hide")
+    document.getElementById("submit-form-btn").classList.remove("hide")
     /* Indicator */
-    document.getElementById("indictor1").classList.remove("selectedIndictor")
-    document.getElementById("indictor2").classList.add("selectedIndictor")
+    document.getElementById("indicator-1").classList.remove("selected-indicator")
+    document.getElementById("indicator-2").classList.add("selected-indicator")
     /* Opdate current slide */
     currentSlide = 2
+    tabindex ()
+
     return
   }
 }
@@ -54,37 +55,98 @@ function nextSlide() {
 function preSlide() {
   if (currentSlide === 2) {
     /* From Fieldset */
-    document.getElementById("creditCard").classList.remove("slideToCenter")
-    document.getElementById("creditCard").classList.add("slideToRight")
-    document.getElementById("billingAddress").classList.add("slideToCenter")
-    document.getElementById("billingAddress").classList.remove("slideToLeft")
+    document.getElementById("credit-card-field").classList.remove("slide-to-center")
+    document.getElementById("credit-card-field").classList.add("slide-to-right")
+    document.getElementById("billing-address-field").classList.add("slide-to-center")
+    document.getElementById("billing-address-field").classList.remove("slide-to-left")
     /* Buttons */
     document.getElementById("next").classList.remove("hide")
-    document.getElementById("subFormBtn").classList.add("hide")
+    document.getElementById("submit-form-btn").classList.add("hide")
     /* Indicator */
-    document.getElementById("indictor2").classList.remove("selectedIndictor")
-    document.getElementById("indictor1").classList.add("selectedIndictor")
+    document.getElementById("indicator-2").classList.remove("selected-indicator")
+    document.getElementById("indicator-1").classList.add("selected-indicator")
     /* Opdate current slide */
     currentSlide = 1
+    tabindex ()
+
     return
   }
   if (currentSlide === 1) {
     /* From Fieldset */
-    document.getElementById("billingAddress").classList.remove("slideToCenter")
-    document.getElementById("billingAddress").classList.add("slideToRight")
-    document.getElementById("shippingAddress").classList.remove("slideToLeft")
-    document.getElementById("shippingAddress").classList.add("slideToCenter")
+    document.getElementById("billing-address-field").classList.remove("slide-to-center")
+    document.getElementById("billing-address-field").classList.add("slide-to-right")
+    document.getElementById("shipping-address-field").classList.remove("slide-to-left")
+    document.getElementById("shipping-address-field").classList.add("slide-to-center")
     /* Buttons */
     document.getElementById("next").classList.remove("hide")
-    btnDisappear("pre")
+    btnDisappear("previous")
     /* Indicator */
-    document.getElementById("indictor1").classList.remove("selectedIndictor")
-    document.getElementById("indictor0").classList.add("selectedIndictor")
+    document.getElementById("indicator-1").classList.remove("selected-indicator")
+    document.getElementById("indicator-0").classList.add("selected-indicator")
     /* Opdate current slide */
     currentSlide = 0
+    tabindex ()
+
     return
   }
 }
+
+
+
+//tilføj tabindex
+function tabindex (){
+  // få alle fieldsets og deres inputfelter
+  const fieldset1 = document.querySelectorAll("#shipping-address-field input")
+  const fieldset2 = document.querySelectorAll("#billing-address-field input")
+  const fieldset3 = document.querySelectorAll("#credit-card-field input")
+  // afhængig af hvilket fieldset/slide man er på, så tilføj/fjen tabindex
+  if(currentSlide === 0){
+    // loop igennem hvert inputfelt
+    fieldset1.forEach(input =>{
+      //console.log(input)
+      input.removeAttribute('tabindex');
+    })
+    fieldset2.forEach(input =>{
+      //console.log(input)
+      input.setAttribute('tabindex', -1);
+    })
+    fieldset3.forEach(input =>{
+      //console.log(input)
+      input.setAttribute('tabindex', -1);
+    })
+  }
+  if(currentSlide === 1){
+    fieldset2.forEach(input =>{
+      //console.log(input)
+      input.removeAttribute('tabindex');
+    })
+    fieldset1.forEach(input =>{
+      //console.log(input)
+      input.setAttribute('tabindex', -1);
+    })
+    fieldset3.forEach(input =>{
+      //console.log(input)
+      input.setAttribute('tabindex', -1);
+    })
+  }
+  if(currentSlide === 2){
+    fieldset3.forEach(input =>{
+      //console.log(input)
+      input.removeAttribute('tabindex');
+    })
+    fieldset1.forEach(input =>{
+      //console.log(input)
+      input.setAttribute('tabindex', -1);
+    })
+    fieldset2.forEach(input =>{
+      //console.log(input)
+      input.setAttribute('tabindex', -1);
+    })
+  }
+}
+tabindex ()
+
+
 
 /* Make The "Previous" Button disappear with an opacity fade */
 function btnDisappear(el) {
@@ -95,7 +157,7 @@ function btnDisappear(el) {
   return
 }
 /* Make The "Previous" Button appear with an opacity fade */
-function btnAppear(el) {
+ function btnAppear(el) {
   document.getElementById(el).classList.remove("opacity")
   document.getElementById(el).classList.remove("hide")
   setTimeout(() => {
@@ -105,14 +167,12 @@ function btnAppear(el) {
 }
 
 // Succesfull order
-
-const submitBtn = document.querySelector("#subFormBtn");
+const submitBtn = document.querySelector("#submit-form-btn");
 submitBtn.addEventListener("click", orderSucces);
 
 function orderSucces() {
 
   if(!validateCreditcard()){
-    console.log("not forfilled")
     return
   }
   const mainCheckout = document.querySelector("#checkout");

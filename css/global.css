@@ -14,6 +14,11 @@
   --color-primary-darker: rgb(63, 13, 172);
   --color-card-drop-shadow: rgba(24, 39, 72, 0.15);
   --color-basket-notification: hsl(0, 100%, 50%);
+  --color-gradient-bg: rgba(245, 246, 252, 0.52);
+  --color-gradient-bg-two: rgba(117, 19, 93, 0.73);
+  --color-error-msg: #ff0000;
+  --color-input-message: #ffa500;
+  --color-valid: #008000;
   
   ::backdrop {
     --color-backdrop: #000000;
@@ -33,18 +38,22 @@
   --text-3xlarge: clamp(2.0738rem, 1.9459rem + 0.6391vw, 2.4413rem);
   --text-4xlarge: clamp(2.4881rem, 2.292rem + 0.9804vw, 3.0519rem);
 
-  /* Padding  */
-  --p1: 0.25rem;
-  --p2: 0.5rem;
-  --p4: 1rem;
-  --p6: 1.5rem;
-  --p8: 2rem;
-  --p12: 3rem;
-  --p16: 4rem;
-  --p20: 5rem;
-  --p24: 6rem;
-  --p28: 7rem;
-  --p32: 8rem;
+  /* spacing for padding/margin/gap/border-radius  */
+  --space-px: 1px;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-28: 7rem;
+  --space-32: 8rem;
+  --space-40: 10rem;
+  --space-48: 12rem;
 }
 
 *, *::before, *::after {
@@ -73,12 +82,12 @@ body {
 main {
   max-width: 1440px;
   margin-inline: auto;
-  padding: var(--p8) var(--p16);
+  padding: var(--space-8) var(--space-16);
 }
 
 @media (max-width: 768px) {
   main {
-    padding: var(--p8) var(--p4);
+    padding: var(--space-8) var(--space-4);
   }
 }
 
