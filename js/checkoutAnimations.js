@@ -170,7 +170,8 @@ function btnDisappear(el) {
 const submitBtn = document.querySelector("#submit-form-btn");
 submitBtn.addEventListener("click", orderSucces);
 
-function orderSucces() {
+function orderSucces(event) {
+  event.preventDefault();
 
   if(!validateCreditcard()){
     return

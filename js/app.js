@@ -59,8 +59,7 @@ function displayAllProducts(products) {
     
     productTemplate.querySelector("article").addEventListener("keydown", (event) => {
       if(event.code === "Enter"){
-        //console.log(event);
-        event.target.click()
+        event.preventDefault();
         viewSingleProduct(product);
       }
     });
