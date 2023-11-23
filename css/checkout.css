@@ -2,7 +2,6 @@
 @import url("footer.css");
 @import url("header.css");
 
-
 main {
   display: flex;
   /* grid-template-columns: 1fr 1fr; */
@@ -19,7 +18,8 @@ form {
   background-color: var(--color-white);
   padding: var(--space-8);
   border-radius: var(--space-2);
-  box-shadow: 0rem var(--space-2) var(--space-6) 0rem var(--color-card-drop-shadow);
+  box-shadow: 0rem var(--space-2) var(--space-6) 0rem
+    var(--color-card-drop-shadow);
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
@@ -85,7 +85,6 @@ input {
   grid-template-rows: 1fr 1fr;
   justify-items: center;
   transition: 0.3s;
-
 }
 
 #continue-shopping {
@@ -147,7 +146,8 @@ input {
 #submit-form-btn:hover {
   /* background-color: var(--color-white);
     color: var(--color-primary); */
-  box-shadow: 0px var(--space-2) var(--space-6) 0px var(--color-card-drop-shadow);
+  box-shadow: 0px var(--space-2) var(--space-6) 0px
+    var(--color-card-drop-shadow);
 }
 
 /* ---------- INDICATOR ---------- */
@@ -231,7 +231,6 @@ input {
     object-fit: contain;
     object-position: center;
   }
-
 }
 
 .basket-img-container {
@@ -257,8 +256,6 @@ input {
   object-fit: contain;
   object-position: center;
 }
-
-
 
 @media (max-width: 900px) {
   form {
@@ -299,10 +296,7 @@ input {
     flex-direction: column-reverse;
     align-items: center;
   }
-
 }
-
-
 
 /* ---------- FORM ANIMATION ---------- */
 
@@ -320,23 +314,19 @@ input {
 
 .slide-to-left {
   transform: translateX(-100%);
-
 }
 
 .slide-to-center {
   transform: translateX(0%);
-
 }
 
 .slide-to-right {
   transform: translateX(100%);
-
 }
 
 label {
   position: relative;
 }
-
 
 /* VALIDATION POPUP */
 #input-popup-container {
@@ -346,7 +336,6 @@ label {
   z-index: 100;
   pointer-events: none;
   width: 100%;
-
 }
 
 .input-popup {
@@ -370,4 +359,24 @@ label {
   width: 25px;
   height: 25px;
   border-radius: 100%;
+}
+
+.btn-shop {
+  background-color: var(--color-primary);
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  padding: var(--space-2);
+  width: 100%;
+  color: var(--color-white);
+  border-radius: var(--space-2);
+  font-size: var(--text-base);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.space {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
 }
