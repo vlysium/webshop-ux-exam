@@ -63,15 +63,19 @@ export function validateCreditcard() {
   
   switch(false) {
     case (cardName.checkValidity()):
+      showPopup(cardName);
       //console.log("false")
       break;
     case (cardNumber.checkValidity()):
+      showPopup(cardNumber);
       //console.log("false")
       break;
     case (cardExpiration.checkValidity()):
+      showPopup(cardExpiration);
       //console.log("false")
       break;
     case (cardCCV.checkValidity()):
+      showPopup(cardCCV);
       //console.log("false")
       break;
     default:
