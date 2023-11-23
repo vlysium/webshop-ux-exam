@@ -380,3 +380,6 @@ label {
   flex-direction: column;
   gap: var(--space-2);
 }
+.space p{
+  font-size: var(--text-xlarge);
+}
