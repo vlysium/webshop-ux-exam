@@ -1,5 +1,3 @@
-
-
 /* Check If Password Matches */
 export function matchPassword(signupPassword, signupRepeatPassword, profiles) {
   // Sammenligner brugers input af deres password, for at se om de matcher
@@ -8,14 +6,10 @@ export function matchPassword(signupPassword, signupRepeatPassword, profiles) {
     invalidPassword(true, "Both Password Most Match")
     return false
   }
-
   return true
 }
 
-/* export function validatePassword(userInput) {
-  return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,20}$/.test(userInput);
-}
- */
+
 export function validatePasswordLowerUpperCase(userInput){
   return /^(?=.*[a-z])(?=.*[A-Z]).*$/.test(userInput)
 }
@@ -56,9 +50,7 @@ export function checkExistingUserMail(signup_email, profiles) {
   document.querySelector("#email-exist-issue").classList.add("hidden")
   document.querySelector("#signup-email").classList.remove("input-border")
   return true
-
 }
-
 
 export function invalidPassword(state, message) {
   if (state) {

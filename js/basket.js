@@ -3,17 +3,10 @@
 import { calculateTotalPrice } from "./calculateTotalPrice.js"
 
 const userBasket = JSON.parse(localStorage.getItem("basket")) ?? []; // assign userBasket to the content of basket in local storage if it exists, otherwise assign it an empty array
-/* ↓ same as below, but in one line ↓
-  if (JSON.parse(localStorage.getItem("basket")) !== null) {
-    const userBasket = localStorage.getItem("basket");
-  } else {
-    const userBasket = [];
-  }
-*/
 
 // return true if the added product id exists in the basket, false if it doesn't exists
 function productExistsInBasket(product) {
-  return userBasket.some(productInBasket => productInBasket.id === product.id)
+  return userBasket.some(productInBasket => productInBasket.id === product.id);
 }
 
 // add product to basket
@@ -24,7 +17,7 @@ function addToBasket(product) {
     price: product.price,
     image: product.image,
     quantity: 1
-  }
+  };
 
   // increment the quantity instead if the product is already in the basket
   if (productExistsInBasket(product)) {
@@ -61,7 +54,7 @@ function viewBasket() {
     basketContainer.appendChild(basketTemplate);
   });
 
-  basketModal.querySelector(".basket-total").textContent = "Total: $" + calculateTotalPrice(userBasket);
+  basketModal.querySelector(".basket-total").textContent = "Total: $" + calculateTotalPrice(userBasket); // calculateTotalPrice.js is where the function is imported from
 
   basketModal.querySelector(".close-modal").addEventListener("click", () => basketModal.close());
 

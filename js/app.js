@@ -32,7 +32,7 @@ async function getProducts() {
   registerFilterBtns()
 }
 
-// truncate text and append (...) at the end if the length of the text exceeds a given max character length
+// truncate text and append (...) at the end, if the length of the text exceeds a given max character length
 function truncateText(string, maxCharLength) {
   if (string.length > maxCharLength) {
     return string.substring(0, maxCharLength) + "...";
@@ -49,7 +49,7 @@ function displayAllProducts(products) {
   products.forEach((product, index) => {
     const productTemplate = document.querySelector("#product-template").content.cloneNode(true);
 
-    productTemplate.querySelector("article").setAttribute("tabindex", (9 + index));
+    productTemplate.querySelector("article").setAttribute("tabindex", (9 + index)); // start from 9 because 1-8 already exists in the document
     productTemplate.querySelector(".product-img").src = product.image;
     productTemplate.querySelector(".product-img").alt = product.title;
     productTemplate.querySelector(".product-title").textContent = truncateText(product.title, 60);
@@ -58,8 +58,8 @@ function displayAllProducts(products) {
     productTemplate.querySelector("article").addEventListener("click", () => viewSingleProduct(product));
     
     productTemplate.querySelector("article").addEventListener("keydown", (event) => {
-      if(event.code === "Enter"){
-        event.preventDefault();
+      if (event.code === "Enter") {
+        event.preventDefault(); // prevent default browser behavior that caused a critical bug in displaying the modal properly
         viewSingleProduct(product);
       }
     });

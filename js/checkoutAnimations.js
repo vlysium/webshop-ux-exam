@@ -1,8 +1,4 @@
-import {
-  valiContactInfo,
-  valiBilling,
-  validateCreditcard,
-} from "./checkout.js";
+import { valiContactInfo, valiBilling, validateCreditcard } from "./checkout.js";
 
 document.getElementById("next").addEventListener("click", nextSlide);
 document.getElementById("previous").addEventListener("click", preSlide);
@@ -20,26 +16,18 @@ function nextSlide() {
 
   if (currentSlide === 0) {
     /* From Fieldset */
-    document
-      .getElementById("shipping-address-field")
-      .classList.remove("slide-to-center");
-    document
-      .getElementById("shipping-address-field")
-      .classList.add("slide-to-left");
-    document
-      .getElementById("billing-address-field")
-      .classList.remove("slide-to-right");
-    document
-      .getElementById("billing-address-field")
-      .classList.add("slide-to-center");
+    document.getElementById("shipping-address-field").classList.remove("slide-to-center");
+    document.getElementById("shipping-address-field").classList.add("slide-to-left");
+    document.getElementById("billing-address-field").classList.remove("slide-to-right");
+    document.getElementById("billing-address-field").classList.add("slide-to-center");
+
     /* Buttons */
     btnAppear("previous");
-    //document.getElementById("previous").classList.remove("hide")
+
     /* Indicator */
-    document
-      .getElementById("indicator-0")
-      .classList.remove("selected-indicator");
+    document.getElementById("indicator-0").classList.remove("selected-indicator");
     document.getElementById("indicator-1").classList.add("selected-indicator");
+
     /* Opdate current slide */
     currentSlide = 1;
     tabindex();
@@ -48,26 +36,19 @@ function nextSlide() {
   }
   if (currentSlide === 1) {
     /* From Fieldset */
-    document
-      .getElementById("billing-address-field")
-      .classList.remove("slide-to-center");
-    document
-      .getElementById("billing-address-field")
-      .classList.add("slide-to-left");
-    document
-      .getElementById("credit-card-field")
-      .classList.remove("slide-to-right");
-    document
-      .getElementById("credit-card-field")
-      .classList.add("slide-to-center");
+    document.getElementById("billing-address-field").classList.remove("slide-to-center");
+    document.getElementById("billing-address-field").classList.add("slide-to-left");
+    document.getElementById("credit-card-field").classList.remove("slide-to-right");
+    document.getElementById("credit-card-field").classList.add("slide-to-center");
+
     /* Buttons */
     document.getElementById("next").classList.add("hide");
     document.getElementById("submit-form-btn").classList.remove("hide");
+
     /* Indicator */
-    document
-      .getElementById("indicator-1")
-      .classList.remove("selected-indicator");
+    document.getElementById("indicator-1").classList.remove("selected-indicator");
     document.getElementById("indicator-2").classList.add("selected-indicator");
+
     /* Opdate current slide */
     currentSlide = 2;
     tabindex();
@@ -79,26 +60,19 @@ function nextSlide() {
 function preSlide() {
   if (currentSlide === 2) {
     /* From Fieldset */
-    document
-      .getElementById("credit-card-field")
-      .classList.remove("slide-to-center");
-    document
-      .getElementById("credit-card-field")
-      .classList.add("slide-to-right");
-    document
-      .getElementById("billing-address-field")
-      .classList.add("slide-to-center");
-    document
-      .getElementById("billing-address-field")
-      .classList.remove("slide-to-left");
+    document.getElementById("credit-card-field").classList.remove("slide-to-center");
+    document.getElementById("credit-card-field").classList.add("slide-to-right");
+    document.getElementById("billing-address-field").classList.add("slide-to-center");
+    document.getElementById("billing-address-field").classList.remove("slide-to-left");
+
     /* Buttons */
     document.getElementById("next").classList.remove("hide");
     document.getElementById("submit-form-btn").classList.add("hide");
+
     /* Indicator */
-    document
-      .getElementById("indicator-2")
-      .classList.remove("selected-indicator");
+    document.getElementById("indicator-2").classList.remove("selected-indicator");
     document.getElementById("indicator-1").classList.add("selected-indicator");
+
     /* Opdate current slide */
     currentSlide = 1;
     tabindex();
@@ -107,26 +81,19 @@ function preSlide() {
   }
   if (currentSlide === 1) {
     /* From Fieldset */
-    document
-      .getElementById("billing-address-field")
-      .classList.remove("slide-to-center");
-    document
-      .getElementById("billing-address-field")
-      .classList.add("slide-to-right");
-    document
-      .getElementById("shipping-address-field")
-      .classList.remove("slide-to-left");
-    document
-      .getElementById("shipping-address-field")
-      .classList.add("slide-to-center");
+    document.getElementById("billing-address-field").classList.remove("slide-to-center");
+    document.getElementById("billing-address-field").classList.add("slide-to-right");
+    document.getElementById("shipping-address-field").classList.remove("slide-to-left");
+    document.getElementById("shipping-address-field").classList.add("slide-to-center");
+
     /* Buttons */
     document.getElementById("next").classList.remove("hide");
     btnDisappear("previous");
+
     /* Indicator */
-    document
-      .getElementById("indicator-1")
-      .classList.remove("selected-indicator");
+    document.getElementById("indicator-1").classList.remove("selected-indicator");
     document.getElementById("indicator-0").classList.add("selected-indicator");
+    
     /* Opdate current slide */
     currentSlide = 0;
     tabindex();
@@ -218,12 +185,13 @@ function orderSucces(event) {
   }
   const mainCheckout = document.querySelector("#checkout");
 
+  // make and checkout proccess fadeaway instead of just disappearing instantly.
+  // then fade in the conformation message.
   mainCheckout.classList.remove("opacity");
   setTimeout(() => {
     mainCheckout.innerHTML = "";
     localStorage.removeItem("basket");
-    mainCheckout.innerHTML =
-      "<div class=space><p>Order succesful</p> <a href=shop.html class=btn-shop>Back to shop</a></div>";
+    mainCheckout.innerHTML = "<div class=\"space\"><p>Order succesful</p> <a href=\"shop.html\" class=\"btn-shop\">Back to shop</a></div>";
     mainCheckout.classList.add("opacity");
   }, 300);
 }
